@@ -1,20 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi4ts1m0cy23f"]
+[gd_scene load_steps=3 format=3 uid="uid://bi4ts1m0cy23f"]
 
 [ext_resource type="Texture2D" uid="uid://bid35d17vdwxl" path="res://image/Backgroundsementara.png" id="1_k11cm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jkd0f"]
 texture = ExtResource("1_k11cm")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmite"]
-size = Vector2(1207, 56)
-
 [node name="Background" type="Panel"]
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_jkd0f")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(586, 504)
-shape = SubResource("RectangleShape2D_pmite")
