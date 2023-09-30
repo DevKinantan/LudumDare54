@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3ukt2k1h4m2a"]
+[gd_scene load_steps=7 format=3 uid="uid://c3ukt2k1h4m2a"]
 
 [ext_resource type="Texture2D" uid="uid://pihyagxddjx7" path="res://image/TankDownperspektif.png" id="1_026ly"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_wbiah"]
+[ext_resource type="Script" path="res://script/Turret.gd" id="3_qrk7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nahuy"]
-size = Vector2(334, 172)
+size = Vector2(334, 173)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mk57i"]
 animations = [{
@@ -17,14 +18,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bhxdt"]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_wbiah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, -21)
+position = Vector2(7, -21.5)
 shape = SubResource("RectangleShape2D_nahuy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_mk57i")
 animation = &"Idle"
+
+[node name="Turret" type="Node2D" parent="."]
+position = Vector2(108, -73)
+script = ExtResource("3_qrk7n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Turret"]
+scale = Vector2(12.5, 6.25)
+texture = SubResource("PlaceholderTexture2D_bhxdt")
+
+[node name="Marker2D" type="Marker2D" parent="Turret"]
+position = Vector2(10, 0)

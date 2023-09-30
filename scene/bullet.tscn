@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dosco8gpv5ps4"]
+
+[ext_resource type="Script" path="res://script/bullet.gd" id="1_xv6lh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kpcju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ea1yf"]
+size = Vector2(10, 10)
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("1_xv6lh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = SubResource("PlaceholderTexture2D_kpcju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ea1yf")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
