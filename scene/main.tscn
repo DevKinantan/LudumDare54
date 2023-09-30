@@ -1,3 +1,86 @@
-[gd_scene format=3 uid="uid://ibwjnnstfxmh"]
+[gd_scene load_steps=5 format=3 uid="uid://ibwjnnstfxmh"]
+
+[ext_resource type="Script" path="res://script/DragItem.gd" id="1_jmenp"]
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item.tscn" id="2_mi4oy"]
+[ext_resource type="Script" path="res://scene/MouseCollision.gd" id="3_fkqg1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cv362"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_jmenp")
+
+[node name="ItemA" parent="." instance=ExtResource("2_mi4oy")]
+position = Vector2(552, 94)
+
+[node name="ItemB" parent="." instance=ExtResource("2_mi4oy")]
+position = Vector2(616, 94)
+
+[node name="ItemB2" parent="." instance=ExtResource("2_mi4oy")]
+position = Vector2(586, 190)
+scale = Vector2(1, 1)
+
+[node name="MouseCollision" type="Node2D" parent="."]
+script = ExtResource("3_fkqg1")
+
+[node name="Area2D" type="Area2D" parent="MouseCollision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseCollision/Area2D"]
+shape = SubResource("CircleShape2D_cv362")
+
+[node name="DummyLine" type="Node2D" parent="."]
+
+[node name="HorizontalLine" type="Node2D" parent="DummyLine"]
+
+[node name="H1" type="Line2D" parent="DummyLine/HorizontalLine"]
+position = Vector2(128, 128)
+points = PackedVector2Array(0, 0, 320, 0)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="H2" type="Line2D" parent="DummyLine/HorizontalLine"]
+position = Vector2(128, 192)
+points = PackedVector2Array(0, 0, 320, 0)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="H3" type="Line2D" parent="DummyLine/HorizontalLine"]
+position = Vector2(128, 256)
+points = PackedVector2Array(0, 0, 320, 0)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="H4" type="Line2D" parent="DummyLine/HorizontalLine"]
+position = Vector2(128, 320)
+points = PackedVector2Array(0, 0, 320, 0)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="VerticalLine" type="Node2D" parent="DummyLine"]
+
+[node name="V1" type="Line2D" parent="DummyLine/VerticalLine"]
+position = Vector2(192, 64)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 320, 0)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="V2" type="Line2D" parent="DummyLine/VerticalLine"]
+position = Vector2(256, 64)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 320, 0)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="V3" type="Line2D" parent="DummyLine/VerticalLine"]
+position = Vector2(320, 64)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 320, 0)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="V4" type="Line2D" parent="DummyLine/VerticalLine"]
+position = Vector2(384, 64)
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 320, 0)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
