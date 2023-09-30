@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3ukt2k1h4m2a"]
+
+[ext_resource type="Texture2D" uid="uid://pihyagxddjx7" path="res://image/TankDownperspektif.png" id="1_026ly"]
+[ext_resource type="Script" path="res://script/player.gd" id="1_wbiah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nahuy"]
+size = Vector2(165, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mk57i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_026ly")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_wbiah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, -10.5)
+shape = SubResource("RectangleShape2D_nahuy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_mk57i")
+animation = &"Idle"
