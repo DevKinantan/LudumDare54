@@ -15,7 +15,7 @@ func _on_body_entered(body):
 	print("hit " + body.name)
 	
 	if body.is_in_group("Enemy"):
-		body.takeDamage(20)
+		body.takeDamage(50)
 		queue_free()
 
 

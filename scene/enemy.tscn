@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cfcy5o48nw5vm" path="res://image/Musuh mati-Sheet.png" id="2_gbfwv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_draqu"]
-radius = 8.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xc5m"]
 atlas = ExtResource("2_gbfwv")

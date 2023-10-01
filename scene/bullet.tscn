@@ -1,8 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dosco8gpv5ps4"]
 
 [ext_resource type="Script" path="res://script/bullet.gd" id="1_xv6lh"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kpcju"]
+[ext_resource type="Texture2D" uid="uid://dn7b70jkoi74i" path="res://image/nokia3310.png" id="2_i3y13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ea1yf"]
 size = Vector2(10, 10)
@@ -10,9 +9,9 @@ size = Vector2(10, 10)
 [node name="bullet" type="Area2D"]
 script = ExtResource("1_xv6lh")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(10, 10)
-texture = SubResource("PlaceholderTexture2D_kpcju")
+[node name="Nokia3310" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_i3y13")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ea1yf")

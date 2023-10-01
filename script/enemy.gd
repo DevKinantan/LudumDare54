@@ -22,6 +22,7 @@ func takeDamage(damage):
 	
 	if health <= 0:
 		$CollisionShape2D.set_deferred("disabled", true)
+		speed = 100
 		animatedSprite.play("death")
 		await animatedSprite.animation_finished
 		queue_free()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3ukt2k1h4m2a"]
+[gd_scene load_steps=17 format=3 uid="uid://c3ukt2k1h4m2a"]
 
 [ext_resource type="Texture2D" uid="uid://pihyagxddjx7" path="res://image/TankDownperspektif.png" id="1_026ly"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_wbiah"]
 [ext_resource type="Script" path="res://script/Turret.gd" id="3_qrk7n"]
+[ext_resource type="Texture2D" uid="uid://cgo06w6fc18b1" path="res://image/Turret-Sheet.png" id="4_7qvvd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nahuy"]
 size = Vector2(182, 95)
@@ -18,6 +19,105 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_addyv"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbti8"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykqek"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c836c"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23b1i"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o13qq"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atsip"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3sie"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gi2lx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_addyv")
+}],
+"loop": true,
+"name": &"atas",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbti8")
+}],
+"loop": true,
+"name": &"bawah",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykqek")
+}],
+"loop": true,
+"name": &"kanan",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c836c")
+}],
+"loop": true,
+"name": &"kananAtas",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23b1i")
+}],
+"loop": true,
+"name": &"kananBawah",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o13qq")
+}],
+"loop": true,
+"name": &"kiri",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atsip")
+}],
+"loop": true,
+"name": &"kiriAtas",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3sie")
+}],
+"loop": true,
+"name": &"kiriBawah",
+"speed": 5.0
+}]
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bhxdt"]
 
 [node name="Player" type="CharacterBody2D"]
@@ -27,21 +127,28 @@ script = ExtResource("1_wbiah")
 position = Vector2(4, -11.5)
 shape = SubResource("RectangleShape2D_nahuy")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="TruckSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.385, 0.385)
 sprite_frames = SubResource("SpriteFrames_mk57i")
 animation = &"Idle"
 
+[node name="TurretSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, -59)
+scale = Vector2(0.37, 0.37)
+sprite_frames = SubResource("SpriteFrames_gi2lx")
+animation = &"kanan"
+
 [node name="Turret" type="Node2D" parent="."]
-position = Vector2(11, -53)
+position = Vector2(7, -65)
 script = ExtResource("3_qrk7n")
 
 [node name="Sprite2D" type="Sprite2D" parent="Turret"]
+visible = false
 scale = Vector2(12.5, 6.25)
 texture = SubResource("PlaceholderTexture2D_bhxdt")
 
 [node name="Marker2D" type="Marker2D" parent="Turret"]
-position = Vector2(10, 0)
+position = Vector2(20, 0)
 
 [node name="CooldownTimer" type="Timer" parent="Turret"]
 wait_time = 0.8
