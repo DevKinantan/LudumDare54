@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ibwjnnstfxmh"]
+[gd_scene load_steps=3 format=3 uid="uid://ibwjnnstfxmh"]
 
-[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item.tscn" id="2_mi4oy"]
-[ext_resource type="Script" path="res://scene/MouseCollision.gd" id="3_fkqg1"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_cv362"]
+[ext_resource type="PackedScene" uid="uid://bjclbttmwp46a" path="res://scene/user_pointer/user_pointer.tscn" id="2_78dyj"]
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="2_mi4oy"]
 
 [node name="Main" type="Node2D"]
 
@@ -13,21 +11,16 @@ scale = Vector2(1.5, 1.5)
 
 [node name="ItemA" parent="." instance=ExtResource("2_mi4oy")]
 position = Vector2(552, 94)
+scale = Vector2(0.5, 0.5)
 
 [node name="ItemB" parent="." instance=ExtResource("2_mi4oy")]
 position = Vector2(616, 94)
+scale = Vector2(0.5, 0.5)
 
 [node name="ItemB2" parent="." instance=ExtResource("2_mi4oy")]
 position = Vector2(586, 190)
-scale = Vector2(1, 1)
 
-[node name="MouseCollision" type="Node2D" parent="."]
-script = ExtResource("3_fkqg1")
-
-[node name="Area2D" type="Area2D" parent="MouseCollision"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseCollision/Area2D"]
-shape = SubResource("CircleShape2D_cv362")
+[node name="UserPointer" parent="." instance=ExtResource("2_78dyj")]
 
 [node name="DummyLine" type="Node2D" parent="."]
 

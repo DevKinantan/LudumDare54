@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://wcdkde8ll5g"]
+
+[ext_resource type="Script" path="res://scene/extendable_cargo_slot/extendable_cargo_slot.gd" id="1_1l0x3"]
+[ext_resource type="PackedScene" uid="uid://7xyass4l4prk" path="res://scene/extendable_cargo_slot/main_slot.tscn" id="1_oif6d"]
+
+[node name="ExtendableCargoSlot" type="Node2D"]
+script = ExtResource("1_1l0x3")
+
+[node name="TopSlot" parent="." instance=ExtResource("1_oif6d")]
+position = Vector2(0, -64)
+rotation = 3.14159
+
+[node name="BottomSlot" parent="." instance=ExtResource("1_oif6d")]

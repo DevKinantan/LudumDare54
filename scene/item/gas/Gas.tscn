@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd4yd7gvryjll"]
+
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="1_l3o7t"]
+[ext_resource type="Texture2D" uid="uid://x1a4pwuiiqh6" path="res://image/gas.png" id="2_yg472"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y81x"]
+size = Vector2(60, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a584g"]
+size = Vector2(60, 120)
+
+[node name="Gas" type="Node2D"]
+
+[node name="Item" parent="." instance=ExtResource("1_l3o7t")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+texture = ExtResource("2_yg472")
+
+[node name="ShadowCollision" parent="Item/ShadowArea" index="1"]
+shape = SubResource("RectangleShape2D_3y81x")
+
+[node name="Sprite2D" parent="Item" index="1"]
+texture = ExtResource("2_yg472")
+
+[node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_a584g")
+
+[editable path="Item"]

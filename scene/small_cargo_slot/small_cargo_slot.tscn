@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://b35jrivkkpxxc"]
+
+[ext_resource type="Texture2D" uid="uid://dv7ywkumpl5ie" path="res://image/UICargosmall.png" id="1_caga2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xojfd"]
+size = Vector2(128, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vhy3"]
+size = Vector2(32, 192)
+
+[node name="SmallCargoSlot" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_caga2")
+
+[node name="InventoryArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea"]
+shape = SubResource("RectangleShape2D_xojfd")
+
+[node name="OutsideArea" type="Area2D" parent="."]
+
+[node name="OutsideCollision4" type="CollisionShape2D" parent="OutsideArea"]
+position = Vector2(0, 115)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_4vhy3")
+
+[node name="OutsideCollision3" type="CollisionShape2D" parent="OutsideArea"]
+position = Vector2(0, -115)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_4vhy3")
+
+[node name="OutsideCollision2" type="CollisionShape2D" parent="OutsideArea"]
+position = Vector2(-83, 0)
+shape = SubResource("RectangleShape2D_4vhy3")
+
+[node name="OutsideCollision" type="CollisionShape2D" parent="OutsideArea"]
+position = Vector2(83, 0)
+shape = SubResource("RectangleShape2D_4vhy3")

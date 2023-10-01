@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://7xyass4l4prk"]
+
+[ext_resource type="Texture2D" uid="uid://0dmycl5vw44h" path="res://image/UpgradeslotUpper.png" id="1_1mdb2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11gur"]
+size = Vector2(256, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjr15"]
+size = Vector2(32, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jca47"]
+size = Vector2(32, 64)
+
+[node name="MainSlot" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("1_1mdb2")
+
+[node name="InventoryArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea"]
+shape = SubResource("RectangleShape2D_11gur")
+
+[node name="OutsideArea" type="Area2D" parent="."]
+
+[node name="OutsideCollision" type="CollisionShape2D" parent="OutsideArea"]
+position = Vector2(0, 50)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_cjr15")
+
+[node name="OutsideCollision2" type="CollisionShape2D" parent="OutsideArea"]
+position = Vector2(146, 0)
+shape = SubResource("RectangleShape2D_jca47")
+
+[node name="OutsideCollision3" type="CollisionShape2D" parent="OutsideArea"]
+position = Vector2(-146, 0)
+shape = SubResource("RectangleShape2D_jca47")

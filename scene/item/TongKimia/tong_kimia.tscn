@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://kh2en7wnns2s"]
+
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="1_x2dah"]
+[ext_resource type="Texture2D" uid="uid://c4lpg4hs1smfn" path="res://image/Tong Kimia.png" id="2_a0snj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo1qw"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc61a"]
+size = Vector2(60, 60)
+
+[node name="TongKimia" type="Node2D"]
+
+[node name="Item" parent="." instance=ExtResource("1_x2dah")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+texture = ExtResource("2_a0snj")
+
+[node name="ShadowCollision" parent="Item/ShadowArea" index="1"]
+shape = SubResource("RectangleShape2D_uo1qw")
+
+[node name="Sprite2D" parent="Item" index="1"]
+texture = ExtResource("2_a0snj")
+
+[node name="ItemArea" parent="Item" index="2"]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
+shape = SubResource("RectangleShape2D_fc61a")
+
+[editable path="Item"]

@@ -12,12 +12,9 @@ func _input(event):
 			for area in mouse_collision.get_overlapping_areas():
 				if area.get_parent().is_class("Item"):
 					picked_item = area.get_parent()
-					picked_item.draggable = true
-					picked_item.get_node("ShadowArea").visible = true
+					picked_item.set_drag_mode(true)
 					break
 		
 		if event.is_released() and picked_item != null:
-			picked_item.draggable = false
-			picked_item.get_node("ShadowArea").visible = true
-			picked_item.snap_position()
+			picked_item.set_drag_mode(false)
 			picked_item = null

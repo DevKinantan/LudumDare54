@@ -1,14 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://pqk4dfi5b3wv"]
 
 [ext_resource type="Texture2D" uid="uid://ds7qs5sqygxcs" path="res://icon.svg" id="1_8hcdg"]
-[ext_resource type="Script" path="res://scene/item.gd" id="1_qv0jt"]
+[ext_resource type="Script" path="res://scene/item/item.gd" id="1_ljv6l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7n8xx"]
-size = Vector2(112, 117.25)
+size = Vector2(119, 117.25)
 
 [node name="Item" type="Node2D"]
-scale = Vector2(0.5, 0.5)
-script = ExtResource("1_qv0jt")
+script = ExtResource("1_ljv6l")
 
 [node name="ShadowArea" type="Area2D" parent="."]
 
@@ -17,7 +16,6 @@ self_modulate = Color(1, 1, 1, 0.498039)
 texture = ExtResource("1_8hcdg")
 
 [node name="ShadowCollision" type="CollisionShape2D" parent="ShadowArea"]
-position = Vector2(0, 0.625)
 shape = SubResource("RectangleShape2D_7n8xx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -26,7 +24,5 @@ texture = ExtResource("1_8hcdg")
 [node name="ItemArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemArea"]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_7n8xx")
-
-[connection signal="area_entered" from="ShadowArea" to="." method="_on_shadow_area_area_entered"]
-[connection signal="area_exited" from="ShadowArea" to="." method="_on_shadow_area_area_exited"]
