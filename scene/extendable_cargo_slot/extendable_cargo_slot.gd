@@ -1,11 +1,13 @@
 extends Node2D
 
 @export var slot: int = 0
+@export var slot_monitorable: bool = true
 
 var extended_slot_trs  = preload("res://scene/extendable_cargo_slot/extended_slot.tscn")
 
 func _ready():
 	create_slot()
+	set_slot_monitorable(slot_monitorable)
 
 
 func create_slot():
@@ -28,3 +30,18 @@ func create_slot():
 func set_slot(num_slot: int):
 	slot = num_slot
 	create_slot()
+
+
+func set_slot_monitorable(is_monitorable: bool):
+	slot_monitorable = is_monitorable
+	
+	$TopSlot.get_node("InventoryArea").monitorable = slot_monitorable
+	$BottomSlot.get_node("InventoryArea").monitorable = slot_monitorable
+	
+	if is_instance_valid($ExtendedSlots):
+		for child in $ExtendedSlots.get_children():
+			child.get_node("InventoryArea").monitorable = slot_monitorable
+
+
+func toggle_slot_monitorable():
+	set_slot_monitorable(not slot_monitorable)

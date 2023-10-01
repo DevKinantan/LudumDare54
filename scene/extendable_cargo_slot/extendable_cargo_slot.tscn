@@ -11,3 +11,5 @@ position = Vector2(0, -64)
 rotation = 3.14159
 
 [node name="BottomSlot" parent="." instance=ExtResource("1_oif6d")]
+
+[node name="ExtendedSlots" type="Node2D" parent="."]

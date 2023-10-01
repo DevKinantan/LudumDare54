@@ -1,17 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://cyrge7lgwd4kf"]
+[gd_scene load_steps=8 format=3 uid="uid://cyrge7lgwd4kf"]
 
 [ext_resource type="Script" path="res://scene/test_ground.gd" id="1_fufa3"]
 [ext_resource type="PackedScene" uid="uid://b35jrivkkpxxc" path="res://scene/small_cargo_slot/small_cargo_slot.tscn" id="1_qbld5"]
 [ext_resource type="PackedScene" uid="uid://cn1n27yv7o7yu" path="res://scene/cargo_slot/cargo_slot.tscn" id="1_wtyov"]
-[ext_resource type="PackedScene" uid="uid://cd4yd7gvryjll" path="res://scene/item/gas/Gas.tscn" id="2_2ngr0"]
-[ext_resource type="PackedScene" uid="uid://kh2en7wnns2s" path="res://scene/item/TongKimia/tong_kimia.tscn" id="3_40ol7"]
 [ext_resource type="PackedScene" uid="uid://bjclbttmwp46a" path="res://scene/user_pointer/user_pointer.tscn" id="4_1ig0d"]
-[ext_resource type="PackedScene" uid="uid://bqk20uoyhxxg5" path="res://scene/item/beker_kimia/beker_kimia.tscn" id="5_h4rpd"]
 [ext_resource type="PackedScene" uid="uid://wcdkde8ll5g" path="res://scene/extendable_cargo_slot/extendable_cargo_slot.tscn" id="6_mgfa1"]
 [ext_resource type="PackedScene" uid="uid://dp4gah2l2120p" path="res://scene/item/fosil/fosil.tscn" id="8_v7378"]
 [ext_resource type="PackedScene" uid="uid://b7qj6fviqolmr" path="res://scene/item/batu_bara/batu_bara.tscn" id="9_0gk1q"]
-[ext_resource type="PackedScene" uid="uid://cvkhsvmj4fqg5" path="res://scene/item/pot/pot.tscn" id="10_rbape"]
-[ext_resource type="PackedScene" uid="uid://dhbra0ed4ekk2" path="res://scene/item/mesin/mesin.tscn" id="11_icpbe"]
 
 [node name="TestGround" type="Node2D"]
 script = ExtResource("1_fufa3")
@@ -25,13 +20,7 @@ position = Vector2(448, 480)
 [node name="CargoSlot" parent="." instance=ExtResource("1_wtyov")]
 position = Vector2(192, 448)
 
-[node name="TongKimia" parent="." instance=ExtResource("3_40ol7")]
-position = Vector2(448, 512)
-
 [node name="UserPointer" parent="." instance=ExtResource("4_1ig0d")]
-
-[node name="BekerKimia" parent="." instance=ExtResource("5_h4rpd")]
-position = Vector2(416, 416)
 
 [node name="DecreaseSlotButton" type="Button" parent="."]
 offset_left = 896.0
@@ -52,15 +41,6 @@ position = Vector2(128, 512)
 
 [node name="BatuBara" parent="." instance=ExtResource("9_0gk1q")]
 position = Vector2(96, 416)
-
-[node name="Pot" parent="." instance=ExtResource("10_rbape")]
-position = Vector2(160, 416)
-
-[node name="Mesin" parent="." instance=ExtResource("11_icpbe")]
-position = Vector2(256, 512)
-
-[node name="Gas" parent="." instance=ExtResource("2_2ngr0")]
-position = Vector2(288, 384)
 
 [connection signal="pressed" from="DecreaseSlotButton" to="." method="_on_decrease_slot_button_pressed"]
 [connection signal="pressed" from="IncreateSlotButton" to="." method="_on_increate_slot_button_pressed"]

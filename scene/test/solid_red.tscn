@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbicp5s022era"]
+
+[ext_resource type="Texture2D" uid="uid://cbxhlvan2n20g" path="res://image/solid_red.png" id="1_t5ipy"]
+[ext_resource type="Texture2D" uid="uid://d2nm0f1wa8dd0" path="res://image/UI Cargo Background.png" id="1_xy7jb"]
+[ext_resource type="Texture2D" uid="uid://dtm1g5r110q23" path="res://image/solid_yellow.png" id="3_17plu"]
+[ext_resource type="Texture2D" uid="uid://b325aiwibtc2i" path="res://image/solid_blue.png" id="4_6m6nb"]
+[ext_resource type="Texture2D" uid="uid://d3ox4bcts3ssd" path="res://image/sollid_green.png" id="5_jq17e"]
+[ext_resource type="Texture2D" uid="uid://bs205dvquunyf" path="res://image/pot(1x1).png" id="6_xw4dv"]
+[ext_resource type="Texture2D" uid="uid://r7heopnygqvm" path="res://image/BatuBara(1x1).png" id="7_qyg8u"]
+[ext_resource type="Texture2D" uid="uid://464v8drv2peg" path="res://image/BekerKimia(1x1).png" id="8_x86w4"]
+
+[node name="SolidRed" type="Node2D"]
+
+[node name="BG2" type="Sprite2D" parent="."]
+position = Vector2(768, 320)
+texture = ExtResource("1_xy7jb")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(512, 320)
+texture = ExtResource("1_xy7jb")
+
+[node name="Red4" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.498039)
+texture = ExtResource("1_t5ipy")
+
+[node name="Red3" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.2)
+position = Vector2(576, 320)
+texture = ExtResource("1_t5ipy")
+
+[node name="Red2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.498039)
+position = Vector2(160, 160)
+texture = ExtResource("1_t5ipy")
+
+[node name="Red" type="Sprite2D" parent="."]
+position = Vector2(0, 160)
+texture = ExtResource("1_t5ipy")
+
+[node name="Yellow" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.498039)
+position = Vector2(96, 0)
+texture = ExtResource("3_17plu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.498039)
+position = Vector2(192, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("4_6m6nb")
+
+[node name="Green" type="Sprite2D" parent="."]
+position = Vector2(0, 320)
+texture = ExtResource("5_jq17e")
+
+[node name="Green2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(160, 320)
+texture = ExtResource("5_jq17e")
+
+[node name="Green4" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.2)
+position = Vector2(768, 320)
+texture = ExtResource("5_jq17e")
+
+[node name="Green3" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.2)
+position = Vector2(480, 320)
+texture = ExtResource("5_jq17e")
+
+[node name="Yellow2" type="Sprite2D" parent="."]
+position = Vector2(0, 480)
+texture = ExtResource("3_17plu")
+
+[node name="Yellow3" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.498039)
+position = Vector2(160, 480)
+texture = ExtResource("3_17plu")
+
+[node name="Yellow4" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.247059)
+position = Vector2(672, 320)
+texture = ExtResource("3_17plu")
+
+[node name="Item" type="Sprite2D" parent="."]
+position = Vector2(480, 320)
+texture = ExtResource("6_xw4dv")
+
+[node name="Flame" type="Sprite2D" parent="."]
+position = Vector2(576, 320)
+texture = ExtResource("7_qyg8u")
+
+[node name="Item3" type="Sprite2D" parent="."]
+position = Vector2(672, 320)
+texture = ExtResource("8_x86w4")
+
+[node name="Item2" type="Sprite2D" parent="."]
+position = Vector2(768, 320)
+texture = ExtResource("6_xw4dv")
