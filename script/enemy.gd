@@ -1,6 +1,8 @@
 extends CharacterBody2D
+class_name EnemyParent
 
-
+const MIN_SPEED = 60
+const MAX_SPEED = 85
 var speed = 100.0
 #const JUMP_VELOCITY = -400.0
 var health = 100
@@ -14,7 +16,7 @@ func _ready():
 	animatedSprite.play("idle")
 	
 	var rng = RandomNumberGenerator.new()
-	speed = rng.randi_range(60, 85)
+	speed = rng.randi_range(MIN_SPEED, MAX_SPEED)
 
 func takeDamage(damage):
 	health -= damage

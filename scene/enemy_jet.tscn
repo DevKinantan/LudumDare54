@@ -1,0 +1,119 @@
+[gd_scene load_steps=18 format=3 uid="uid://dqjdsrpfy244"]
+
+[ext_resource type="PackedScene" uid="uid://die120ayy6wq3" path="res://scene/enemy.tscn" id="1_kwy1x"]
+[ext_resource type="Script" path="res://script/enemy_jet.gd" id="2_7m62c"]
+[ext_resource type="Texture2D" uid="uid://dkyrsfphbnqjr" path="res://image/Musuh Motor mati-Sheet.png" id="2_fmnjp"]
+[ext_resource type="Texture2D" uid="uid://b1jfsan860758" path="res://image/Musuh Motor-Sheet.png" id="3_n0135"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3k6d"]
+size = Vector2(38, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2l63"]
+atlas = ExtResource("2_fmnjp")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l031i"]
+atlas = ExtResource("2_fmnjp")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7446"]
+atlas = ExtResource("2_fmnjp")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3omo"]
+atlas = ExtResource("2_fmnjp")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jungu"]
+atlas = ExtResource("2_fmnjp")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw8eo"]
+atlas = ExtResource("2_fmnjp")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihrdb"]
+atlas = ExtResource("3_n0135")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nesjr"]
+atlas = ExtResource("3_n0135")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7xjs"]
+atlas = ExtResource("3_n0135")
+region = Rect2(512, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fx36"]
+atlas = ExtResource("3_n0135")
+region = Rect2(768, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wt34"]
+atlas = ExtResource("3_n0135")
+region = Rect2(1024, 0, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ue11"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2l63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l031i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7446")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3omo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jungu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw8eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw8eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw8eo")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihrdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nesjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7xjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fx36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wt34")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="EnemyJet" instance=ExtResource("1_kwy1x")]
+script = ExtResource("2_7m62c")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-4, 0.5)
+shape = SubResource("RectangleShape2D_r3k6d")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_4ue11")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+position = Vector2(-4, 0.500001)
+scale = Vector2(1.9, 1.25)
