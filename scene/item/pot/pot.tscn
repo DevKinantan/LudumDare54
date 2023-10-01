@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvkhsvmj4fqg5"]
+
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="1_1dnnb"]
+[ext_resource type="Texture2D" uid="uid://bs205dvquunyf" path="res://image/pot(1x1).png" id="2_auquy"]
+
+[node name="Pot" type="Node2D"]
+
+[node name="Item" parent="." instance=ExtResource("1_1dnnb")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+texture = ExtResource("2_auquy")
+
+[node name="ShadowCollision" parent="Item/ShadowArea" index="1"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" parent="Item" index="1"]
+texture = ExtResource("2_auquy")
+
+[node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
+scale = Vector2(0.5, 0.5)
+
+[editable path="Item"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp4gah2l2120p"]
+
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="1_dt7xs"]
+[ext_resource type="Texture2D" uid="uid://dh8o2tg5kstgv" path="res://image/Fossil.png" id="2_mx6ec"]
+
+[node name="Fosil" type="Node2D"]
+
+[node name="Item" parent="." instance=ExtResource("1_dt7xs")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+texture = ExtResource("2_mx6ec")
+
+[node name="Sprite2D" parent="Item" index="1"]
+texture = ExtResource("2_mx6ec")
+
+[editable path="Item"]

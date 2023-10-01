@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhbra0ed4ekk2"]
+
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="1_qhed5"]
+[ext_resource type="Texture2D" uid="uid://l3dkvljvk1fw" path="res://image/Masin.png" id="2_7pmb5"]
+
+[node name="Mesin" type="Node2D"]
+
+[node name="Item" parent="." instance=ExtResource("1_qhed5")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+texture = ExtResource("2_7pmb5")
+
+[node name="Sprite2D" parent="Item" index="1"]
+texture = ExtResource("2_7pmb5")
+
+[editable path="Item"]

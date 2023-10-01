@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7qj6fviqolmr"]
+
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="1_c58ol"]
+[ext_resource type="Texture2D" uid="uid://r7heopnygqvm" path="res://image/BatuBara(1x1).png" id="2_vcbbs"]
+
+[node name="BatuBara" type="Node2D"]
+
+[node name="Item" parent="." instance=ExtResource("1_c58ol")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+texture = ExtResource("2_vcbbs")
+
+[node name="ShadowCollision" parent="Item/ShadowArea" index="1"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" parent="Item" index="1"]
+texture = ExtResource("2_vcbbs")
+
+[node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
+scale = Vector2(0.5, 0.5)
+
+[editable path="Item"]
