@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://script/Turret.gd" id="3_qrk7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nahuy"]
-size = Vector2(334, 173)
+size = Vector2(182, 95)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mk57i"]
 animations = [{
@@ -24,16 +24,16 @@ animations = [{
 script = ExtResource("1_wbiah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, -21.5)
+position = Vector2(4, -11.5)
 shape = SubResource("RectangleShape2D_nahuy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.11, 0.11)
 sprite_frames = SubResource("SpriteFrames_mk57i")
 animation = &"Idle"
 
 [node name="Turret" type="Node2D" parent="."]
-position = Vector2(108, -73)
+position = Vector2(11, -53)
 script = ExtResource("3_qrk7n")
 
 [node name="Sprite2D" type="Sprite2D" parent="Turret"]
@@ -42,3 +42,14 @@ texture = SubResource("PlaceholderTexture2D_bhxdt")
 
 [node name="Marker2D" type="Marker2D" parent="Turret"]
 position = Vector2(10, 0)
+
+[node name="CooldownTimer" type="Timer" parent="Turret"]
+wait_time = 0.8
+one_shot = true
+
+[node name="BurstTimer" type="Timer" parent="Turret"]
+wait_time = 0.07
+one_shot = true
+
+[connection signal="timeout" from="Turret/CooldownTimer" to="Turret" method="_on_cooldown_timer_timeout"]
+[connection signal="timeout" from="Turret/BurstTimer" to="Turret" method="_on_burst_timer_timeout"]
