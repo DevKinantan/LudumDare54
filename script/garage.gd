@@ -1,15 +1,12 @@
 extends Node2D
 
 var isTruckStop = false
-var shop_scene = preload("res://scene/shop.tscn")
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		body.checkpointReached()
 		isTruckStop = true
 		
-		var shop = shop_scene.instantiate()
-		get_tree().get_root().add_child(shop)
 
 func _process(delta):
 	if !isTruckStop:

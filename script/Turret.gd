@@ -82,7 +82,7 @@ func upgradeTurret(level):
 	if level == 1:
 		fireRate = .8
 	elif level == 2:
-		fireRate = .4
+		fireRate = .5
 	elif level == 3:
 		bulletBurst = 2
 

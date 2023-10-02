@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgjnc2x44cwnj"]
+[gd_scene load_steps=12 format=3 uid="uid://cgjnc2x44cwnj"]
 
 [ext_resource type="PackedScene" uid="uid://dkoqefijgogr1" path="res://scene/background.tscn" id="1_0foba"]
 [ext_resource type="Script" path="res://script/test_gameplay.gd" id="1_82fdm"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cvkhsvmj4fqg5" path="res://scene/item/pot/pot.tscn" id="6_3tk0e"]
 [ext_resource type="PackedScene" uid="uid://b4wx1cnboofgk" path="res://scene/item/toxic_diamond/toxic_diamond.tscn" id="7_cxc5v"]
 [ext_resource type="Texture2D" uid="uid://dt0urauvnbbi7" path="res://image/sTART.png" id="8_pkrp0"]
+[ext_resource type="Texture2D" uid="uid://cxlg4wdt4f7l2" path="res://image/Store/upgrade.png" id="9_g6m1a"]
 [ext_resource type="Texture2D" uid="uid://bhvs34skhrys5" path="res://image/BarBelakang.png" id="9_lqlvc"]
 [ext_resource type="Texture2D" uid="uid://rb0uutnfqrwx" path="res://image/BarDepan.png" id="10_a4ass"]
 
@@ -21,7 +22,7 @@ one_shot = true
 autostart = true
 
 [node name="CheckpointTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 120.0
 one_shot = true
 autostart = true
 
@@ -60,6 +61,16 @@ texture_normal = ExtResource("8_pkrp0")
 ignore_texture_size = true
 stretch_mode = 3
 
+[node name="ShopBtn" type="TextureButton" parent="."]
+visible = false
+offset_left = 832.0
+offset_top = 432.0
+offset_right = 1064.0
+offset_bottom = 504.0
+texture_normal = ExtResource("9_g6m1a")
+ignore_texture_size = true
+stretch_mode = 3
+
 [node name="ProgressBar" type="TextureProgressBar" parent="."]
 offset_left = 768.0
 offset_top = 8.0
@@ -77,3 +88,6 @@ texture_progress = ExtResource("10_a4ass")
 [connection signal="mouse_entered" from="ContinueBtn" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="mouse_exited" from="ContinueBtn" to="." method="_on_texture_button_mouse_exited"]
 [connection signal="pressed" from="ContinueBtn" to="." method="_on_texture_button_pressed"]
+[connection signal="mouse_entered" from="ShopBtn" to="." method="_on_shop_btn_mouse_entered"]
+[connection signal="mouse_exited" from="ShopBtn" to="." method="_on_shop_btn_mouse_exited"]
+[connection signal="pressed" from="ShopBtn" to="." method="_on_shop_btn_pressed"]
