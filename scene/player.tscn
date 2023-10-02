@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3ukt2k1h4m2a"]
+[gd_scene load_steps=18 format=3 uid="uid://c3ukt2k1h4m2a"]
 
 [ext_resource type="Texture2D" uid="uid://pihyagxddjx7" path="res://image/TankDownperspektif.png" id="1_026ly"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_wbiah"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nahuy"]
 size = Vector2(182, 95)
+
+[sub_resource type="Gradient" id="Gradient_3xygi"]
+colors = PackedColorArray(1, 1, 1, 0.560784, 0.401938, 0.289838, 0.213772, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mk57i"]
 animations = [{
@@ -126,6 +129,46 @@ script = ExtResource("1_wbiah")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, -11.5)
 shape = SubResource("RectangleShape2D_nahuy")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-59, 28)
+amount = 30
+lifetime = 2.0
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(1, 6)
+direction = Vector2(-1, 0)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+angular_velocity_max = 100.0
+damping_min = 10.0
+damping_max = 25.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color = Color(0.807843, 0.505882, 0.32549, 0.619608)
+color_ramp = SubResource("Gradient_3xygi")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(-45, 4)
+amount = 30
+lifetime = 2.0
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(1, 6)
+direction = Vector2(-1, 0)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+angular_velocity_max = 100.0
+damping_min = 10.0
+damping_max = 25.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color = Color(0.807843, 0.505882, 0.32549, 0.619608)
+color_ramp = SubResource("Gradient_3xygi")
 
 [node name="TruckSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.385, 0.385)

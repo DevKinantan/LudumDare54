@@ -1,11 +1,11 @@
 extends CharacterBody2D
 class_name EnemyParent
 
-const MIN_SPEED = 60
-const MAX_SPEED = 85
+@export var MIN_SPEED = 60
+@export var MAX_SPEED = 85
 var speed = 100.0
 #const JUMP_VELOCITY = -400.0
-var health = 100
+@export var health = 100
 
 @onready var animatedSprite = get_node("AnimatedSprite2D")
 
@@ -20,6 +20,8 @@ func _ready():
 
 func takeDamage(damage):
 	health -= damage
+	modulate = Color("ff6a58")
+	$HitCooldown.start()
 	print(str(health))
 	
 	if health <= 0:
@@ -54,3 +56,7 @@ func _process(delta):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
+
+
+func _on_hit_cooldown_timeout():
+	modulate = Color("ffffff")
