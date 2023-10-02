@@ -124,6 +124,7 @@ animations = [{
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bhxdt"]
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 2
 script = ExtResource("1_wbiah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

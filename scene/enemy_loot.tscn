@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1o1k4kyptgug"]
+
+[ext_resource type="Script" path="res://script/EnemyLoot.gd" id="1_u7ktp"]
+[ext_resource type="Texture2D" uid="uid://dvvu0f26dw4yo" path="res://image/dummy_box.png" id="2_8sjje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpbja"]
+size = Vector2(28, 28)
+
+[node name="EnemyLoot" type="Area2D" groups=["Loot"]]
+script = ExtResource("1_u7ktp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("2_8sjje")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jpbja")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(1.4, 1.4)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

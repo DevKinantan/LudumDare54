@@ -23,7 +23,7 @@ func spawnEnemy():
 	ranint = rng.randi_range(1, 2)
 	
 	if ranint == 1:
-		ranY = rng.randi_range(250, 325)
+		ranY = rng.randi_range(250, 315)
 	else:
 		ranY = rng.randf_range(475, 625)
 	

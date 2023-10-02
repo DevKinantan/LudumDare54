@@ -1,21 +1,25 @@
 extends CharacterBody2D
 class_name EnemyParent
 
+@export var direction = Vector2.LEFT
 @export var MIN_SPEED = 60
 @export var MAX_SPEED = 85
-var speed = 100.0
-#const JUMP_VELOCITY = -400.0
+var speed = 100.
+
 @export var health = 100
 
+@export var dropRarity = 35
+
 @onready var animatedSprite = get_node("AnimatedSprite2D")
+var rng = RandomNumberGenerator.new()
+
+var loot_scene = preload("res://scene/enemy_loot.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	animatedSprite.play("idle")
-	
-	var rng = RandomNumberGenerator.new()
 	speed = rng.randi_range(MIN_SPEED, MAX_SPEED)
 
 func takeDamage(damage):
@@ -25,14 +29,28 @@ func takeDamage(damage):
 	print(str(health))
 	
 	if health <= 0:
-		$CollisionShape2D.set_deferred("disabled", true)
-		speed = 100
-		animatedSprite.play("death")
-		await animatedSprite.animation_finished
-		queue_free()
+		death()
+
+func death():
+	$CollisionShape2D.set_deferred("disabled", true)
+	speed = 100
+	
+	animatedSprite.play("death")
+	await animatedSprite.animation_finished
+	
+	var ranint = rng.randi_range(1, 100)
+	
+	if(ranint <= dropRarity):
+		var loot = loot_scene.instantiate()
+		loot.position = position
+		get_tree().get_root().add_child(loot)
+	
+	queue_free()
 
 func _process(delta):
-	translate(Vector2.LEFT.normalized() * speed * delta)
+	if health <= 0:
+		direction = Vector2.LEFT 
+	translate(direction.normalized() * speed * delta)
 
 #func _physics_process(delta):
 	# Add the gravity.
