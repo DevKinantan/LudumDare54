@@ -2,6 +2,13 @@ extends Node2D
 
 var enemy_scene = preload("res://scene/enemy.tscn")
 var enemyJet_scene = preload("res://scene/enemy_jet.tscn")
+var garage_scene = preload("res://scene/garage.tscn")
+
+@onready var continueBtn = get_node("ContinueBtn")
+
+@onready var progressBar = get_node("ProgressBar")
+
+var isEnemySpawning = true
 
 func spawnEnemy():
 	var rng = RandomNumberGenerator.new()
@@ -29,7 +36,58 @@ func spawnEnemy():
 	
 	enemy.position = Vector2(ranX, ranY)
 	get_tree().get_root().add_child(enemy)
-
+	
 
 func _on_enemy_spawn_timeout():
+	if isEnemySpawning:
+		spawnEnemy()
+
+
+func _on_checkpoint_timer_timeout():
+	isEnemySpawning = false
+	
+	var garage = garage_scene.instantiate()
+	garage.position = Vector2(2500, 275)
+	get_tree().get_root().add_child(garage)
+	
+	print("Checkpoint Reached")
+
+
+func _on_player_checkpoint_reached():
+	$Background.changeTruckCondition(true)
+	$Player.get_node("Particle1").emitting = false
+	$Player.get_node("Particle2").emitting = false	
+	continueBtn.visible = true
+	print("Stopping truck")
+
+
+func _on_texture_button_mouse_entered():
+	continueBtn.self_modulate = Color.GRAY
+
+
+func _on_texture_button_mouse_exited():
+	continueBtn.self_modulate = Color.WHITE
+
+
+func _on_texture_button_pressed():
+	$Background.changeTruckCondition(false)
+	$Player.get_node("Particle1").emitting = true
+	$Player.get_node("Particle2").emitting = true
+	continueBtn.visible = false
+	get_tree().get_root().get_node("Garage").changeTruckCond(false)
+	progressBar.value = 0
+	$StartCooldown.start()
+
+
+func _on_start_cooldown_timeout():
+	isEnemySpawning = true
 	spawnEnemy()
+	$CheckpointTimer.start()
+	$CountdownTimer.start()
+
+
+func _on_countdown_timer_timeout():
+	if(progressBar.value <= 40):
+		progressBar.value += 1
+	else:
+		$CountdownTimer.stop()

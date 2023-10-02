@@ -3,8 +3,11 @@ extends Node2D
 var bullet_scene = preload("res://scene/bullet.tscn")
 var canFire = true
 var bulletBurst = 1
+var fireRate = .8
 var shotsFired = 0
 var animPlaying = ""
+
+var currentTurretLevel = 1
 
 @onready var animatedSprite = get_node("../TurretSprite")
 
@@ -21,7 +24,7 @@ func fire():
 func isFireable():
 	if canFire:
 		canFire = false
-		$CooldownTimer.start()
+		$CooldownTimer.start(fireRate)
 		fire()
 
 
@@ -69,12 +72,19 @@ func _physics_process(delta):
 		animatedSprite.play("kanan")
 		animPlaying = "kanan"		
 	### --- ###
-	if Input.is_action_pressed("ui_select"):
+	if Input.is_action_pressed("fire"):
 		isFireable()
 
 
-func upgradeTurret():
-	bulletBurst += 1
+func upgradeTurret(level):
+	currentTurretLevel = level
+	
+	if level == 1:
+		fireRate = .8
+	elif level == 2:
+		fireRate = .4
+	elif level == 3:
+		bulletBurst = 2
 
 
 func _on_cooldown_timer_timeout():
