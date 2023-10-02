@@ -106,6 +106,9 @@ animations = [{
 
 [node name="EnemyJet" instance=ExtResource("1_kwy1x")]
 script = ExtResource("2_7m62c")
+direction = Vector2(1, 0)
+health = 150
+dropRarity = 60
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-4, 0.5)

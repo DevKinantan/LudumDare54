@@ -22,7 +22,7 @@ position = Vector2(503, 399)
 
 [node name="Inventory" parent="." instance=ExtResource("4_vrvqi")]
 z_index = 1
-position = Vector2(192, 704)
+position = Vector2(192, 640)
 is_open = false
 
 [node name="SmallCargoSlot" parent="." instance=ExtResource("5_f4q2a")]

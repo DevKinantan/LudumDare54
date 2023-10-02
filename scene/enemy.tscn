@@ -111,6 +111,7 @@ animations = [{
 }]
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+z_index = 1
 position = Vector2(1, 0)
 script = ExtResource("1_ahh6d")
 
@@ -124,7 +125,6 @@ animation = &"idle"
 speed_scale = 2.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-visible = false
 scale = Vector2(0.8, 1.5)
 
 [node name="HitCooldown" type="Timer" parent="."]
