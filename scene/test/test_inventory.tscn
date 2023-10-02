@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://7va2ycimjeld"]
+[gd_scene load_steps=9 format=3 uid="uid://7va2ycimjeld"]
 
 [ext_resource type="PackedScene" uid="uid://byawmvuiyqvi0" path="res://scene/inventory/inventory.tscn" id="1_1vmc4"]
 [ext_resource type="PackedScene" uid="uid://cn1n27yv7o7yu" path="res://scene/cargo_slot/cargo_slot.tscn" id="2_uihqo"]
-[ext_resource type="PackedScene" uid="uid://dp4gah2l2120p" path="res://scene/item/fosil/fosil.tscn" id="3_tx8qk"]
-[ext_resource type="PackedScene" uid="uid://cd4yd7gvryjll" path="res://scene/item/gas/Gas.tscn" id="4_xcusx"]
+[ext_resource type="PackedScene" uid="uid://bqk20uoyhxxg5" path="res://scene/item/beker_kimia/beker_kimia.tscn" id="4_v00lv"]
+[ext_resource type="PackedScene" uid="uid://cd4yd7gvryjll" path="res://scene/item/gas/Gas.tscn" id="5_4nq44"]
 [ext_resource type="PackedScene" uid="uid://b7qj6fviqolmr" path="res://scene/item/batu_bara/batu_bara.tscn" id="5_wbcei"]
+[ext_resource type="PackedScene" uid="uid://cvkhsvmj4fqg5" path="res://scene/item/pot/pot.tscn" id="6_b50ye"]
+[ext_resource type="PackedScene" uid="uid://de7qv6ilh1tm0" path="res://scene/item/flame_diamond/flame_diamond.tscn" id="6_dwogd"]
+[ext_resource type="PackedScene" uid="uid://b4wx1cnboofgk" path="res://scene/item/toxic_diamond/toxic_diamond.tscn" id="7_2gvpm"]
 
 [node name="test_inventory" type="Node2D"]
 
@@ -18,15 +21,28 @@ slot = 1
 [node name="CargoSlot" parent="." instance=ExtResource("2_uihqo")]
 position = Vector2(512, 448)
 
-[node name="Fosil" parent="." instance=ExtResource("3_tx8qk")]
-position = Vector2(448, 512)
+[node name="BekerKimia" parent="." instance=ExtResource("4_v00lv")]
+position = Vector2(608, 544)
 
-[node name="Gas" parent="." instance=ExtResource("4_xcusx")]
-position = Vector2(608, 512)
+[node name="Gas" parent="." instance=ExtResource("5_4nq44")]
+position = Vector2(416, 512)
 
-[node name="BatuBara" parent="." instance=ExtResource("5_wbcei")]
+[node name="BatuBara2" parent="." instance=ExtResource("5_wbcei")]
+position = Vector2(608, 352)
+
+[node name="CargoSlot2" parent="." instance=ExtResource("2_uihqo")]
+position = Vector2(832, 448)
+
+[node name="FlameDiamond" parent="." instance=ExtResource("6_dwogd")]
 position = Vector2(416, 352)
+
+[node name="ToxicDiamond" parent="." instance=ExtResource("7_2gvpm")]
+position = Vector2(480, 480)
+
+[node name="Pot" parent="." instance=ExtResource("6_b50ye")]
+position = Vector2(864, 480)
 
 [editable path="Inventory"]
 [editable path="Inventory/ExtendableCargoSlot"]
 [editable path="CargoSlot"]
+[editable path="CargoSlot2"]

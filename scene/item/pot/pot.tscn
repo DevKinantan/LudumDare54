@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvkhsvmj4fqg5"]
+[gd_scene load_steps=6 format=3 uid="uid://cvkhsvmj4fqg5"]
 
 [ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="1_1dnnb"]
+[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_wk3xj"]
 [ext_resource type="Texture2D" uid="uid://bs205dvquunyf" path="res://image/pot(1x1).png" id="2_auquy"]
+[ext_resource type="PackedScene" uid="uid://nlsveud5flp7" path="res://scene/item/bloom.tscn" id="3_jdhlq"]
+[ext_resource type="PackedScene" uid="uid://cye1k4nmg0wgy" path="res://scene/item/status_efect.tscn" id="4_qtwhy"]
 
 [node name="Pot" type="Node2D"]
+script = ExtResource("1_wk3xj")
 
 [node name="Item" parent="." instance=ExtResource("1_1dnnb")]
 
@@ -18,5 +22,14 @@ texture = ExtResource("2_auquy")
 
 [node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
 scale = Vector2(0.5, 0.5)
+
+[node name="Bloom" parent="Item" instance=ExtResource("3_jdhlq")]
+
+[node name="StatusEffect" parent="Item" instance=ExtResource("4_qtwhy")]
+
+[connection signal="drag_mode" from="Item" to="Item/Bloom" method="_on_item_drag_mode"]
+[connection signal="position_change" from="Item" to="." method="_on_item_position_change"]
+[connection signal="position_change" from="Item" to="Item/StatusEffect" method="_on_item_position_change"]
+[connection signal="set_effect" from="Item" to="Item/StatusEffect" method="_on_item_set_effect"]
 
 [editable path="Item"]

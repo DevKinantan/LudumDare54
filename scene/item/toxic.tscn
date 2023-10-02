@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxhqf7xyye5e0"]
+
+[ext_resource type="Script" path="res://scene/item/status_area.gd" id="1_m2pjo"]
+[ext_resource type="Texture2D" uid="uid://dtm1g5r110q23" path="res://image/solid_yellow.png" id="1_tsx1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76ucj"]
+size = Vector2(64, 128)
+
+[node name="Toxic" type="Node2D"]
+z_index = -1
+script = ExtResource("1_m2pjo")
+effect_type = "toxic"
+
+[node name="EffectArea" type="Area2D" parent="."]
+
+[node name="ToxicCollision3" type="CollisionShape2D" parent="EffectArea"]
+position = Vector2(-64, 32)
+shape = SubResource("RectangleShape2D_76ucj")
+
+[node name="ToxicCollision2" type="CollisionShape2D" parent="EffectArea"]
+position = Vector2(-32, -64)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_76ucj")
+
+[node name="ToxicCollision" type="CollisionShape2D" parent="EffectArea"]
+position = Vector2(64, -32)
+shape = SubResource("RectangleShape2D_76ucj")
+
+[node name="ToxicCollision4" type="CollisionShape2D" parent="EffectArea"]
+position = Vector2(32, 64)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_76ucj")
+
+[node name="AreaSprite" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.247059)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_tsx1u")

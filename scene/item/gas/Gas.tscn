@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd4yd7gvryjll"]
+[gd_scene load_steps=7 format=3 uid="uid://cd4yd7gvryjll"]
 
 [ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="1_l3o7t"]
+[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_vxtqv"]
 [ext_resource type="Texture2D" uid="uid://x1a4pwuiiqh6" path="res://image/gas.png" id="2_yg472"]
+[ext_resource type="PackedScene" uid="uid://cye1k4nmg0wgy" path="res://scene/item/status_efect.tscn" id="3_do2a3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y81x"]
 size = Vector2(60, 120)
@@ -10,6 +12,8 @@ size = Vector2(60, 120)
 size = Vector2(60, 120)
 
 [node name="Gas" type="Node2D"]
+script = ExtResource("1_vxtqv")
+destroy_by_flame = true
 
 [node name="Item" parent="." instance=ExtResource("1_l3o7t")]
 
@@ -25,5 +29,10 @@ texture = ExtResource("2_yg472")
 [node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_a584g")
+
+[node name="StatusEffect" parent="Item" instance=ExtResource("3_do2a3")]
+
+[connection signal="position_change" from="Item" to="Item/StatusEffect" method="_on_item_position_change"]
+[connection signal="set_effect" from="Item" to="Item/StatusEffect" method="_on_item_set_effect"]
 
 [editable path="Item"]

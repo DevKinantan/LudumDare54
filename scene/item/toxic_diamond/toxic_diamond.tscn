@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqk20uoyhxxg5"]
+[gd_scene load_steps=8 format=3 uid="uid://b4wx1cnboofgk"]
 
-[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_aswdw"]
-[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="1_o6qvf"]
-[ext_resource type="Texture2D" uid="uid://464v8drv2peg" path="res://image/BekerKimia(1x1).png" id="2_25ku2"]
-[ext_resource type="PackedScene" uid="uid://cxhqf7xyye5e0" path="res://scene/item/toxic.tscn" id="4_qhva8"]
-[ext_resource type="PackedScene" uid="uid://cye1k4nmg0wgy" path="res://scene/item/status_efect.tscn" id="5_l5x2x"]
+[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_mwna1"]
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="2_6w00c"]
+[ext_resource type="Texture2D" uid="uid://dhofe4arysxm5" path="res://image/elemenToxic.png" id="3_5y7lf"]
+[ext_resource type="PackedScene" uid="uid://cxhqf7xyye5e0" path="res://scene/item/toxic.tscn" id="4_1w3wb"]
+[ext_resource type="PackedScene" uid="uid://cye1k4nmg0wgy" path="res://scene/item/status_efect.tscn" id="5_drq4e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unwf6"]
 size = Vector2(60, 60)
@@ -12,26 +12,26 @@ size = Vector2(60, 60)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oblls"]
 size = Vector2(60, 60)
 
-[node name="BekerKimia" type="Node2D"]
-script = ExtResource("1_aswdw")
+[node name="ToxicDiamond" type="Node2D"]
+script = ExtResource("1_mwna1")
 
-[node name="Item" parent="." instance=ExtResource("1_o6qvf")]
+[node name="Item" parent="." instance=ExtResource("2_6w00c")]
 
 [node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
-texture = ExtResource("2_25ku2")
+texture = ExtResource("3_5y7lf")
 
 [node name="ShadowCollision" parent="Item/ShadowArea" index="1"]
 shape = SubResource("RectangleShape2D_unwf6")
 
 [node name="Sprite2D" parent="Item" index="1"]
-texture = ExtResource("2_25ku2")
+texture = ExtResource("3_5y7lf")
 
 [node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
 shape = SubResource("RectangleShape2D_oblls")
 
-[node name="Toxic" parent="Item" instance=ExtResource("4_qhva8")]
+[node name="Toxic" parent="Item" instance=ExtResource("4_1w3wb")]
 
-[node name="StatusEffect" parent="Item" instance=ExtResource("5_l5x2x")]
+[node name="StatusEffect" parent="Item" instance=ExtResource("5_drq4e")]
 
 [connection signal="drag_mode" from="Item" to="Item/Toxic" method="_on_item_drag_mode"]
 [connection signal="position_change" from="Item" to="." method="_on_item_position_change"]

@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7qj6fviqolmr"]
+[gd_scene load_steps=6 format=3 uid="uid://b7qj6fviqolmr"]
 
 [ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="1_c58ol"]
-[ext_resource type="Script" path="res://scene/item/item.gd" id="1_etsck"]
+[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_mw10c"]
+[ext_resource type="PackedScene" uid="uid://dtu03n6fy8r0f" path="res://scene/item/flameable.tscn" id="2_a7rvo"]
 [ext_resource type="Texture2D" uid="uid://r7heopnygqvm" path="res://image/BatuBara(1x1).png" id="2_vcbbs"]
+[ext_resource type="PackedScene" uid="uid://cye1k4nmg0wgy" path="res://scene/item/status_efect.tscn" id="5_bx5je"]
 
 [node name="BatuBara" type="Node2D"]
-script = ExtResource("1_etsck")
+script = ExtResource("1_mw10c")
 
 [node name="Item" parent="." instance=ExtResource("1_c58ol")]
 
@@ -21,6 +23,17 @@ texture = ExtResource("2_vcbbs")
 [node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
 scale = Vector2(0.5, 0.5)
 
+[node name="Flameable" parent="Item" instance=ExtResource("2_a7rvo")]
+
+[node name="AreaSprite" parent="Item/Flameable" index="1"]
+position = Vector2(5.72205e-06, 0)
+
+[node name="StatusEffect" parent="Item" instance=ExtResource("5_bx5je")]
+
+[connection signal="drag_mode" from="Item" to="Item/Flameable" method="_on_item_drag_mode"]
 [connection signal="position_change" from="Item" to="." method="_on_item_position_change"]
+[connection signal="position_change" from="Item" to="Item/StatusEffect" method="_on_item_position_change"]
+[connection signal="set_effect" from="Item" to="Item/StatusEffect" method="_on_item_set_effect"]
 
 [editable path="Item"]
+[editable path="Item/Flameable"]

@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://pqk4dfi5b3wv"]
 
 [ext_resource type="Texture2D" uid="uid://ds7qs5sqygxcs" path="res://icon.svg" id="1_8hcdg"]
-[ext_resource type="Script" path="res://scene/item/item_interaction.gd" id="1_kivck"]
+[ext_resource type="Script" path="res://scene/item/item.gd" id="1_jcu13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7n8xx"]
 size = Vector2(119, 117.25)
 
 [node name="Item" type="Node2D"]
-z_index = 1
-script = ExtResource("1_kivck")
+z_index = 2
+script = ExtResource("1_jcu13")
 
 [node name="ShadowArea" type="Area2D" parent="."]
 
@@ -27,3 +27,6 @@ texture = ExtResource("1_8hcdg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemArea"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_7n8xx")
+
+[connection signal="area_entered" from="ShadowArea" to="." method="_on_shadow_area_area_entered"]
+[connection signal="area_exited" from="ShadowArea" to="." method="_on_shadow_area_area_exited"]

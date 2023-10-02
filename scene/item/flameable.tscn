@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtu03n6fy8r0f"]
+
+[ext_resource type="Script" path="res://scene/item/status_area.gd" id="1_1yvij"]
+[ext_resource type="Texture2D" uid="uid://cbxhlvan2n20g" path="res://image/solid_red.png" id="1_n36m5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw1f4"]
+size = Vector2(64, 64)
+
+[node name="Flameable" type="Node2D"]
+z_index = -1
+script = ExtResource("1_1yvij")
+
+[node name="EffectArea" type="Area2D" parent="."]
+
+[node name="FlameCollision" type="CollisionShape2D" parent="EffectArea"]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_xw1f4")
+
+[node name="FlameCollision2" type="CollisionShape2D" parent="EffectArea"]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_xw1f4")
+
+[node name="AreaSprite" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.247059)
+scale = Vector2(1.5, 0.5)
+texture = ExtResource("1_n36m5")

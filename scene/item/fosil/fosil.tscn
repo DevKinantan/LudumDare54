@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dp4gah2l2120p"]
 
-[ext_resource type="Script" path="res://scene/item/item.gd" id="1_3mp3m"]
+[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_3mp3m"]
 [ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="1_dt7xs"]
 [ext_resource type="Texture2D" uid="uid://dh8o2tg5kstgv" path="res://image/Fossil.png" id="2_mx6ec"]
 
