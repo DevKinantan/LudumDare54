@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://c423ebkyeo02v"]
+
+[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_erwij"]
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="2_tfoda"]
+[ext_resource type="Texture2D" uid="uid://tlaym31k3dyj" path="res://image/amber.png" id="3_y7b6e"]
+[ext_resource type="PackedScene" uid="uid://cye1k4nmg0wgy" path="res://scene/item/status_efect.tscn" id="4_el3si"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nhl5"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m82gy"]
+size = Vector2(64, 64)
+
+[node name="Amber" type="Node2D"]
+script = ExtResource("1_erwij")
+item_name = "Amber"
+price = 2500
+
+[node name="Item" parent="." instance=ExtResource("2_tfoda")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+texture = ExtResource("3_y7b6e")
+
+[node name="ShadowCollision" parent="Item/ShadowArea" index="1"]
+shape = SubResource("RectangleShape2D_4nhl5")
+
+[node name="Sprite2D" parent="Item" index="1"]
+texture = ExtResource("3_y7b6e")
+
+[node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_m82gy")
+
+[node name="StatusEffect" parent="Item" instance=ExtResource("4_el3si")]
+
+[connection signal="position_change" from="Item" to="." method="_on_item_position_change"]
+[connection signal="position_change" from="Item" to="Item/StatusEffect" method="_on_item_position_change"]
+[connection signal="set_effect" from="Item" to="Item/StatusEffect" method="_on_item_set_effect"]
+
+[editable path="Item"]

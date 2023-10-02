@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://44pg7u8vduwr"]
+
+[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_2i5hw"]
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="2_7cniy"]
+[ext_resource type="Texture2D" uid="uid://dift0k0ptr5if" path="res://image/nokia3310 (1).png" id="3_bufyj"]
+[ext_resource type="PackedScene" uid="uid://cye1k4nmg0wgy" path="res://scene/item/status_efect.tscn" id="4_bcso1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nhl5"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m82gy"]
+size = Vector2(64, 64)
+
+[node name="Nokia3310" type="Node2D"]
+script = ExtResource("1_2i5hw")
+item_name = "Nokta3310"
+price = 1500
+
+[node name="Item" parent="." instance=ExtResource("2_7cniy")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_bufyj")
+
+[node name="ShadowCollision" parent="Item/ShadowArea" index="1"]
+shape = SubResource("RectangleShape2D_4nhl5")
+
+[node name="Sprite2D" parent="Item" index="1"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_bufyj")
+
+[node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_m82gy")
+
+[node name="StatusEffect" parent="Item" instance=ExtResource("4_bcso1")]
+
+[connection signal="position_change" from="Item" to="." method="_on_item_position_change"]
+[connection signal="position_change" from="Item" to="Item/StatusEffect" method="_on_item_position_change"]
+[connection signal="set_effect" from="Item" to="Item/StatusEffect" method="_on_item_set_effect"]
+
+[editable path="Item"]

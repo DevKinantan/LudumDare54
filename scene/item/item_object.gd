@@ -2,6 +2,8 @@ class_name ItemObject extends Node2D
 
 @export var cant_sell: bool = false
 @export var destroy_by_flame: bool = false
+
+@export var item_name: String = "test"
 @export var price: int = 0
 
 
@@ -16,7 +18,6 @@ func _process(delta):
 
 
 func _on_item_position_change(area_parent, source):
-	print(area_parent)
 	if get_parent() != area_parent:
 		get_parent().remove_child(self)
 		area_parent.add_child(self)

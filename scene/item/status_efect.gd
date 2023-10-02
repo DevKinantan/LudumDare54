@@ -21,6 +21,8 @@ func _on_item_set_effect(effect, status):
 	elif effect == "toxic":
 		have_toxic = status
 		$LogoToxic.visible = status
+		get_parent().get_parent().cant_sell = status
+		
 	
 	if not get_parent().draggable:
 		trigger_effect()

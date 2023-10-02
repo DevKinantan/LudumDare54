@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://m6cqyqaem0fn"]
+
+[ext_resource type="Script" path="res://scene/Tutorial/help.gd" id="1_tqbtd"]
+[ext_resource type="Texture2D" uid="uid://fx4easu5sygd" path="res://image/Tutorial/Tutorial 1.png" id="1_w0l3e"]
+
+[node name="Help" type="Node2D"]
+z_index = 2
+script = ExtResource("1_tqbtd")
+
+[node name="Tutorial" type="Node2D" parent="."]
+
+[node name="Previos" type="Button" parent="Tutorial"]
+offset_left = 288.0
+offset_top = 288.0
+offset_right = 320.0
+offset_bottom = 352.0
+text = "<"
+
+[node name="Next" type="Button" parent="Tutorial"]
+offset_left = 832.0
+offset_top = 288.0
+offset_right = 864.0
+offset_bottom = 352.0
+text = ">"
+
+[node name="SpriteHelp" type="Sprite2D" parent="Tutorial"]
+position = Vector2(576, 320)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_w0l3e")
+
+[node name="Close" type="Button" parent="Tutorial"]
+offset_left = 672.0
+offset_top = 448.0
+offset_right = 768.0
+offset_bottom = 479.0
+text = "Close
+"
+
+[node name="HelpButton" type="Button" parent="."]
+offset_left = 1056.0
+offset_top = 32.0
+offset_right = 1120.0
+offset_bottom = 64.0
+text = "HELP"
+
+[connection signal="pressed" from="Tutorial/Previos" to="." method="_on_previos_pressed"]
+[connection signal="pressed" from="Tutorial/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Tutorial/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c428rnvxsxg3r"]
+
+[ext_resource type="Script" path="res://scene/lootbox/lootbox_variation/lootbox_2x2.gd" id="1_p4dra"]
+[ext_resource type="PackedScene" uid="uid://65c3recjdkjl" path="res://scene/lootbox/lootbox.tscn" id="2_nlhr3"]
+
+[node name="Lootbox2x2" type="Node2D"]
+z_index = 2
+script = ExtResource("1_p4dra")
+
+[node name="Lootbox" parent="." instance=ExtResource("2_nlhr3")]
+
+[editable path="Lootbox"]

@@ -42,9 +42,9 @@ func sell_inventory_items():
 	for item in item_list:
 		if not item.cant_sell:
 			sum += item.price
-			item_sold += (item.name + " = " + str(item.price) + "\n")
+			item_sold += (item.item_name + " = " + str(item.price) + "\n")
 		elif item.cant_sell:
-			item_sold += (item.name + "(toxic) = 0\n")
+			item_sold += (item.item_name + "(toxic) = 0\n")
 			
 		item.queue_free()
 	

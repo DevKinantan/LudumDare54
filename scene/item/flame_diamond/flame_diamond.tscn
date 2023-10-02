@@ -8,6 +8,7 @@
 
 [node name="FlameDiamond" type="Node2D"]
 script = ExtResource("1_o0dr7")
+item_name = "Flame Diamond"
 price = 17000
 
 [node name="Item" parent="." instance=ExtResource("2_27w6a")]

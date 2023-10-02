@@ -13,7 +13,8 @@ size = Vector2(60, 120)
 
 [node name="Gas" type="Node2D"]
 script = ExtResource("1_vxtqv")
-destroy_by_flame = true
+item_name = "Gas"
+price = 3500
 
 [node name="Item" parent="." instance=ExtResource("1_l3o7t")]
 
@@ -32,6 +33,7 @@ shape = SubResource("RectangleShape2D_a584g")
 
 [node name="StatusEffect" parent="Item" instance=ExtResource("3_do2a3")]
 
+[connection signal="position_change" from="Item" to="." method="_on_item_position_change"]
 [connection signal="position_change" from="Item" to="Item/StatusEffect" method="_on_item_position_change"]
 [connection signal="set_effect" from="Item" to="Item/StatusEffect" method="_on_item_set_effect"]
 

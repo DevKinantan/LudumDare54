@@ -1,18 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx3ygybnjipv7"]
+[gd_scene load_steps=4 format=3 uid="uid://cx3ygybnjipv7"]
 
-[ext_resource type="PackedScene" uid="uid://65c3recjdkjl" path="res://scene/lootbox/lootbox.tscn" id="1_cbvta"]
+[ext_resource type="PackedScene" uid="uid://dqligg5ak1h3" path="res://scene/lootbox/lootbox_variation/lootbox_1x1.tscn" id="1_2be4r"]
+[ext_resource type="PackedScene" uid="uid://c428rnvxsxg3r" path="res://scene/lootbox/lootbox_variation/lootbox_2x2.tscn" id="1_cs21j"]
 [ext_resource type="PackedScene" uid="uid://byawmvuiyqvi0" path="res://scene/inventory/inventory.tscn" id="2_igoh2"]
 
 [node name="TestLootbox" type="Node2D"]
 
-[node name="Lootbox" parent="." instance=ExtResource("1_cbvta")]
-position = Vector2(512, 576)
+[node name="Lootbox2x2" parent="." instance=ExtResource("1_cs21j")]
+position = Vector2(704, 512)
+
+[node name="Lootbox1x1" parent="." instance=ExtResource("1_2be4r")]
+position = Vector2(512, 512)
 
 [node name="Inventory" parent="." instance=ExtResource("2_igoh2")]
-position = Vector2(192, 736)
+position = Vector2(192, 640)
+is_open = false
 
-[node name="Item" parent="Inventory/SalesPanel" index="2"]
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Button" parent="Inventory" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="SalesPanel" parent="Inventory" index="3"]
+visible = false
 
 [editable path="Inventory"]

@@ -14,6 +14,8 @@ size = Vector2(60, 60)
 
 [node name="ToxicDiamond" type="Node2D"]
 script = ExtResource("1_mwna1")
+item_name = "Toxic Diamond"
+price = 17000
 
 [node name="Item" parent="." instance=ExtResource("2_6w00c")]
 

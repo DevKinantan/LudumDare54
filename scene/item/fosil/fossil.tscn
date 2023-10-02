@@ -1,0 +1,139 @@
+[gd_scene load_steps=10 format=3 uid="uid://d31amio17f28f"]
+
+[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_anp2t"]
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="2_sj80j"]
+[ext_resource type="Texture2D" uid="uid://dh8o2tg5kstgv" path="res://image/Fossil.png" id="3_yjqhc"]
+[ext_resource type="PackedScene" uid="uid://nlsveud5flp7" path="res://scene/item/bloom.tscn" id="4_0swa2"]
+[ext_resource type="Texture2D" uid="uid://blbekfavhbw3l" path="res://image/logo_bloom.png" id="5_kgpq0"]
+[ext_resource type="PackedScene" uid="uid://cye1k4nmg0wgy" path="res://scene/item/status_efect.tscn" id="5_siq5j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61ni5"]
+size = Vector2(256, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0nr2"]
+size = Vector2(256, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e4hs"]
+size = Vector2(32, 32)
+
+[node name="Fossil" type="Node2D"]
+script = ExtResource("1_anp2t")
+item_name = "Fossil"
+price = 24000
+
+[node name="Item" parent="." instance=ExtResource("2_sj80j")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+texture = ExtResource("3_yjqhc")
+
+[node name="ShadowCollision" parent="Item/ShadowArea" index="1"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_61ni5")
+
+[node name="Sprite2D" parent="Item" index="1"]
+texture = ExtResource("3_yjqhc")
+
+[node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
+position = Vector2(0, 0)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_t0nr2")
+
+[node name="Bloom" parent="Item" instance=ExtResource("4_0swa2")]
+
+[node name="AreaSprite" parent="Item/Bloom/EffectArea" index="0"]
+position = Vector2(-2.86102e-06, -1.90735e-06)
+scale = Vector2(2, 1)
+
+[node name="AreaSprite2" parent="Item/Bloom/EffectArea" index="1"]
+position = Vector2(0, 96)
+scale = Vector2(1, 0.5)
+
+[node name="AreaSprite3" parent="Item/Bloom/EffectArea" index="2"]
+position = Vector2(0, -96)
+scale = Vector2(1, 0.5)
+
+[node name="BloomCollision" parent="Item/Bloom/EffectArea" index="3"]
+position = Vector2(-32, -96)
+
+[node name="BloomCollision2" parent="Item/Bloom/EffectArea" index="4"]
+position = Vector2(96, -32)
+
+[node name="BloomCollision3" parent="Item/Bloom/EffectArea" index="5"]
+position = Vector2(-32, 96)
+
+[node name="BloomCollision4" parent="Item/Bloom/EffectArea" index="6"]
+position = Vector2(-96, 32)
+
+[node name="BloomCollision" parent="Item/Bloom/BloomSpots/BloomSpot/BloomArea" index="0"]
+position = Vector2(-32, -96)
+
+[node name="BloomSprite" parent="Item/Bloom/BloomSpots/BloomSpot/BloomArea" index="1"]
+position = Vector2(-32, -96)
+
+[node name="BloomCollision" parent="Item/Bloom/BloomSpots/BloomSpot2/BloomArea" index="0"]
+position = Vector2(96, -32)
+
+[node name="BloomSprite" parent="Item/Bloom/BloomSpots/BloomSpot2/BloomArea" index="1"]
+position = Vector2(96, -32)
+
+[node name="BloomCollision" parent="Item/Bloom/BloomSpots/BloomSpot3/BloomArea" index="0"]
+position = Vector2(-32, 96)
+
+[node name="BloomSprite" parent="Item/Bloom/BloomSpots/BloomSpot3/BloomArea" index="1"]
+position = Vector2(-32, 96)
+
+[node name="BloomCollision" parent="Item/Bloom/BloomSpots/BloomSpot4/BloomArea" index="0"]
+position = Vector2(-97, 32)
+
+[node name="BloomSprite" parent="Item/Bloom/BloomSpots/BloomSpot4/BloomArea" index="1"]
+position = Vector2(-97, 32)
+
+[node name="BloomCollision" parent="Item/Bloom/BloomSpots/BloomSpot5/BloomArea" index="0"]
+position = Vector2(32, -96)
+shape = SubResource("RectangleShape2D_4e4hs")
+
+[node name="BloomSprite" parent="Item/Bloom/BloomSpots/BloomSpot5/BloomArea" index="1"]
+position = Vector2(32, -96)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_kgpq0")
+
+[node name="BloomCollision" parent="Item/Bloom/BloomSpots/BloomSpot6/BloomArea" index="0"]
+position = Vector2(96, 32)
+shape = SubResource("RectangleShape2D_4e4hs")
+
+[node name="BloomSprite" parent="Item/Bloom/BloomSpots/BloomSpot6/BloomArea" index="1"]
+position = Vector2(96, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_kgpq0")
+
+[node name="BloomCollision" parent="Item/Bloom/BloomSpots/BloomSpot7/BloomArea" index="0"]
+position = Vector2(32, 96)
+shape = SubResource("RectangleShape2D_4e4hs")
+
+[node name="BloomSprite" parent="Item/Bloom/BloomSpots/BloomSpot7/BloomArea" index="1"]
+position = Vector2(32, 96)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_kgpq0")
+
+[node name="BloomArea" parent="Item/Bloom/BloomSpots/BloomSpot8" index="0"]
+position = Vector2(1, 0)
+
+[node name="BloomCollision" parent="Item/Bloom/BloomSpots/BloomSpot8/BloomArea" index="0"]
+position = Vector2(-97, -32)
+shape = SubResource("RectangleShape2D_4e4hs")
+
+[node name="BloomSprite" parent="Item/Bloom/BloomSpots/BloomSpot8/BloomArea" index="1"]
+position = Vector2(-97, -32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_kgpq0")
+
+[node name="StatusEffect" parent="Item" instance=ExtResource("5_siq5j")]
+position = Vector2(32, 0)
+
+[connection signal="drag_mode" from="Item" to="Item/Bloom" method="_on_item_drag_mode"]
+[connection signal="position_change" from="Item" to="." method="_on_item_position_change"]
+[connection signal="position_change" from="Item" to="Item/StatusEffect" method="_on_item_position_change"]
+[connection signal="set_effect" from="Item" to="Item/StatusEffect" method="_on_item_set_effect"]
+
+[editable path="Item"]
+[editable path="Item/Bloom"]

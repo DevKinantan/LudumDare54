@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://nmp6vl0x1rjj"]
+
+[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_hf6xu"]
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="2_ad4v2"]
+[ext_resource type="Texture2D" uid="uid://d032ceci0x33o" path="res://image/water_galoon (1).png" id="3_1swtt"]
+[ext_resource type="PackedScene" uid="uid://cye1k4nmg0wgy" path="res://scene/item/status_efect.tscn" id="4_u70kp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mroyv"]
+size = Vector2(120, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m82gy"]
+size = Vector2(120, 120)
+
+[node name="WaterGaloon" type="Node2D"]
+script = ExtResource("1_hf6xu")
+item_name = "Water Galoon"
+price = 7000
+
+[node name="Item" parent="." instance=ExtResource("2_ad4v2")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+texture = ExtResource("3_1swtt")
+
+[node name="ShadowCollision" parent="Item/ShadowArea" index="1"]
+shape = SubResource("RectangleShape2D_mroyv")
+
+[node name="Sprite2D" parent="Item" index="1"]
+texture = ExtResource("3_1swtt")
+
+[node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_m82gy")
+
+[node name="StatusEffect" parent="Item" instance=ExtResource("4_u70kp")]
+
+[connection signal="position_change" from="Item" to="." method="_on_item_position_change"]
+[connection signal="position_change" from="Item" to="Item/StatusEffect" method="_on_item_position_change"]
+[connection signal="set_effect" from="Item" to="Item/StatusEffect" method="_on_item_set_effect"]
+
+[editable path="Item"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj4drr22dje2l"]
+
+[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_bo804"]
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="2_m3q07"]
+[ext_resource type="Texture2D" uid="uid://jpwajh0b0i33" path="res://image/cow.png" id="3_av4bl"]
+[ext_resource type="PackedScene" uid="uid://cye1k4nmg0wgy" path="res://scene/item/status_efect.tscn" id="4_6rq7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mroyv"]
+size = Vector2(120, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m82gy"]
+size = Vector2(120, 120)
+
+[node name="Cow" type="Node2D"]
+script = ExtResource("1_bo804")
+item_name = "Cow"
+price = 10500
+
+[node name="Item" parent="." instance=ExtResource("2_m3q07")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_av4bl")
+
+[node name="ShadowCollision" parent="Item/ShadowArea" index="1"]
+shape = SubResource("RectangleShape2D_mroyv")
+
+[node name="Sprite2D" parent="Item" index="1"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_av4bl")
+
+[node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_m82gy")
+
+[node name="StatusEffect" parent="Item" instance=ExtResource("4_6rq7m")]
+
+[connection signal="position_change" from="Item" to="." method="_on_item_position_change"]
+[connection signal="position_change" from="Item" to="Item/StatusEffect" method="_on_item_position_change"]
+[connection signal="set_effect" from="Item" to="Item/StatusEffect" method="_on_item_set_effect"]
+
+[editable path="Item"]

@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://byawmvuiyqvi0"]
+[gd_scene load_steps=7 format=3 uid="uid://byawmvuiyqvi0"]
 
 [ext_resource type="Script" path="res://scene/inventory/inventory.gd" id="1_jbuuj"]
 [ext_resource type="PackedScene" uid="uid://wcdkde8ll5g" path="res://scene/extendable_cargo_slot/extendable_cargo_slot.tscn" id="1_ocs6q"]
 [ext_resource type="PackedScene" uid="uid://bjclbttmwp46a" path="res://scene/user_pointer/user_pointer.tscn" id="3_dvxgr"]
 [ext_resource type="Texture2D" uid="uid://26f11uv2f3sr" path="res://image/TrashClosed.png" id="4_g2ytw"]
+[ext_resource type="Script" path="res://scene/inventory/trash.gd" id="4_gawe8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w78l3"]
-size = Vector2(128, 128)
+size = Vector2(64, 128)
 
 [node name="Inventory" type="Node2D"]
 script = ExtResource("1_jbuuj")
@@ -79,6 +80,7 @@ Sapi (toxic) = 0
 Pot = 15000"
 
 [node name="Trash" type="Node2D" parent="."]
+script = ExtResource("4_gawe8")
 
 [node name="TrashLogo" type="Sprite2D" parent="Trash"]
 position = Vector2(192, -128)
@@ -91,3 +93,5 @@ position = Vector2(192, -128)
 shape = SubResource("RectangleShape2D_w78l3")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="area_entered" from="Trash/TrashArea" to="Trash" method="_on_trash_area_area_entered"]
+[connection signal="area_exited" from="Trash/TrashArea" to="Trash" method="_on_trash_area_area_exited"]

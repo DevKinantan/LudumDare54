@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://x0p122ushdw3"]
+
+[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_es8ed"]
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="2_tyii6"]
+[ext_resource type="Texture2D" uid="uid://l1mg4310mjoc" path="res://image/jerrycan (1).png" id="3_r2p1x"]
+[ext_resource type="PackedScene" uid="uid://cye1k4nmg0wgy" path="res://scene/item/status_efect.tscn" id="4_debde"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nhl5"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m82gy"]
+size = Vector2(64, 64)
+
+[node name="Jerrycan" type="Node2D"]
+script = ExtResource("1_es8ed")
+item_name = "Jerry Can"
+price = 1500
+
+[node name="Item" parent="." instance=ExtResource("2_tyii6")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_r2p1x")
+
+[node name="ShadowCollision" parent="Item/ShadowArea" index="1"]
+shape = SubResource("RectangleShape2D_4nhl5")
+
+[node name="Sprite2D" parent="Item" index="1"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_r2p1x")
+
+[node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_m82gy")
+
+[node name="StatusEffect" parent="Item" instance=ExtResource("4_debde")]
+
+[connection signal="position_change" from="Item" to="." method="_on_item_position_change"]
+[connection signal="position_change" from="Item" to="Item/StatusEffect" method="_on_item_position_change"]
+[connection signal="set_effect" from="Item" to="Item/StatusEffect" method="_on_item_set_effect"]
+
+[editable path="Item"]
