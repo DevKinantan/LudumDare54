@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dosco8gpv5ps4"]
 
 [ext_resource type="Script" path="res://script/bullet.gd" id="1_xv6lh"]
-[ext_resource type="Texture2D" uid="uid://dn7b70jkoi74i" path="res://image/nokia3310.png" id="2_i3y13"]
+[ext_resource type="Texture2D" uid="uid://vrgdqvm5glph" path="res://image/nokia3310.png" id="2_i3y13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ea1yf"]
 size = Vector2(10, 10)
