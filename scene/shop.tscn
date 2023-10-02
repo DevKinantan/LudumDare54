@@ -1,0 +1,153 @@
+[gd_scene load_steps=12 format=3 uid="uid://yx28bg5vj5y7"]
+
+[ext_resource type="Texture2D" uid="uid://cajmuhiw1xdic" path="res://image/Store/Backgroundstore.png" id="1_mqqi4"]
+[ext_resource type="Script" path="res://script/shop.gd" id="1_vyq3o"]
+[ext_resource type="Texture2D" uid="uid://7vxylq13jty4" path="res://image/Store/Tampilan tank store.png" id="2_mfab0"]
+[ext_resource type="Texture2D" uid="uid://d1c2bfjubvk6s" path="res://image/Store/back.png" id="3_1xvil"]
+[ext_resource type="Texture2D" uid="uid://cyius5267ljsi" path="res://image/Store/background_upgrade.png" id="4_ncluf"]
+[ext_resource type="Texture2D" uid="uid://cxlg4wdt4f7l2" path="res://image/Store/upgrade.png" id="6_ygvns"]
+[ext_resource type="Texture2D" uid="uid://tciqakci3fe" path="res://image/Store/circuit_lvl1.png" id="7_u3ide"]
+[ext_resource type="Texture2D" uid="uid://quv6xqgleqvu" path="res://image/Store/button_upgrade.png" id="8_0rgwr"]
+[ext_resource type="Texture2D" uid="uid://ctpfpyrxuspca" path="res://image/Store/slot_lvl1.png" id="9_x02g3"]
+[ext_resource type="Texture2D" uid="uid://cr1chjjduufy0" path="res://image/Store/trash_lvl1.png" id="10_rqajs"]
+[ext_resource type="Texture2D" uid="uid://dwsac6cwi3bke" path="res://image/Store/button_maxed_upgrade.png" id="11_mipmb"]
+
+[node name="Shop" type="Control"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vyq3o")
+
+[node name="StoreBG" type="Sprite2D" parent="."]
+position = Vector2(576, 325)
+scale = Vector2(1.2, 1.1963)
+texture = ExtResource("1_mqqi4")
+
+[node name="TankStore" type="Sprite2D" parent="."]
+position = Vector2(368, 272)
+scale = Vector2(1.75992, 1.75992)
+texture = ExtResource("2_mfab0")
+
+[node name="BackBtn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 520.0
+offset_right = 472.0
+offset_bottom = 592.0
+texture_normal = ExtResource("3_1xvil")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="UpgradePanel" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = ExtResource("4_ncluf")
+
+[node name="UpgradeText" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 16.0
+offset_right = 1024.0
+offset_bottom = 88.0
+texture = ExtResource("6_ygvns")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Turret" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 720.0
+offset_top = 128.0
+offset_right = 1096.0
+offset_bottom = 256.0
+
+[node name="TurretIcon" type="TextureRect" parent="Turret"]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 176.0
+offset_bottom = 128.0
+texture = ExtResource("7_u3ide")
+
+[node name="TurretUpgBtn" type="TextureButton" parent="Turret"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 24.0
+offset_right = 320.0
+offset_bottom = 104.0
+texture_normal = ExtResource("8_0rgwr")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TurretUpgMaxBtn" type="TextureButton" parent="Turret"]
+visible = false
+layout_mode = 0
+offset_left = 240.0
+offset_top = 24.0
+offset_right = 320.0
+offset_bottom = 104.0
+texture_normal = ExtResource("11_mipmb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 720.0
+offset_top = 280.0
+offset_right = 1096.0
+offset_bottom = 408.0
+
+[node name="SlotIcon" type="TextureRect" parent="Slot"]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 176.0
+offset_bottom = 128.0
+texture = ExtResource("9_x02g3")
+
+[node name="SlotUpgBtn" type="TextureButton" parent="Slot"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 24.0
+offset_right = 320.0
+offset_bottom = 104.0
+texture_normal = ExtResource("8_0rgwr")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Trash" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 720.0
+offset_top = 432.0
+offset_right = 1096.0
+offset_bottom = 560.0
+
+[node name="TrashIcon" type="TextureRect" parent="Trash"]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 176.0
+offset_bottom = 128.0
+texture = ExtResource("10_rqajs")
+
+[node name="TrashUpgBtn" type="TextureButton" parent="Trash"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 24.0
+offset_right = 320.0
+offset_bottom = 104.0
+texture_normal = ExtResource("11_mipmb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="mouse_entered" from="BackBtn" to="." method="_on_back_btn_mouse_entered"]
+[connection signal="mouse_exited" from="BackBtn" to="." method="_on_back_btn_mouse_exited"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="mouse_entered" from="Turret/TurretUpgBtn" to="." method="_on_turret_upg_btn_mouse_entered"]
+[connection signal="mouse_exited" from="Turret/TurretUpgBtn" to="." method="_on_turret_upg_btn_mouse_exited"]
+[connection signal="pressed" from="Turret/TurretUpgBtn" to="." method="_on_turret_upg_btn_pressed"]
+[connection signal="mouse_entered" from="Slot/SlotUpgBtn" to="." method="_on_slot_upg_btn_mouse_entered"]
+[connection signal="mouse_exited" from="Slot/SlotUpgBtn" to="." method="_on_slot_upg_btn_mouse_exited"]
+[connection signal="pressed" from="Slot/SlotUpgBtn" to="." method="_on_slot_upg_btn_pressed"]

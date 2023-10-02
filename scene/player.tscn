@@ -5,9 +5,6 @@
 [ext_resource type="Script" path="res://script/Turret.gd" id="3_qrk7n"]
 [ext_resource type="Texture2D" uid="uid://cgo06w6fc18b1" path="res://image/Turret-Sheet.png" id="4_7qvvd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nahuy"]
-size = Vector2(182, 95)
-
 [sub_resource type="Gradient" id="Gradient_3xygi"]
 colors = PackedColorArray(1, 1, 1, 0.560784, 0.401938, 0.289838, 0.213772, 0)
 
@@ -121,17 +118,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nahuy"]
+size = Vector2(19, 95)
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bhxdt"]
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
 script = ExtResource("1_wbiah")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -11.5)
-shape = SubResource("RectangleShape2D_nahuy")
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="Particle1" type="CPUParticles2D" parent="."]
 position = Vector2(-59, 28)
 amount = 30
 lifetime = 2.0
@@ -151,7 +147,7 @@ scale_amount_max = 10.0
 color = Color(0.807843, 0.505882, 0.32549, 0.619608)
 color_ramp = SubResource("Gradient_3xygi")
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+[node name="Particle2" type="CPUParticles2D" parent="."]
 position = Vector2(-45, 4)
 amount = 30
 lifetime = 2.0
@@ -181,6 +177,10 @@ position = Vector2(9, -59)
 scale = Vector2(0.37, 0.37)
 sprite_frames = SubResource("SpriteFrames_gi2lx")
 animation = &"kanan"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(44, -11.5)
+shape = SubResource("RectangleShape2D_nahuy")
 
 [node name="Turret" type="Node2D" parent="."]
 position = Vector2(7, -65)
