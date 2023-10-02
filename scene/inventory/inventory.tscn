@@ -11,6 +11,7 @@ script = ExtResource("1_jbuuj")
 offset_left = -64.0
 offset_top = -32.0
 offset_right = 64.0
+keep_pressed_outside = true
 text = "CARGO"
 
 [node name="ExtendableCargoSlot" parent="." instance=ExtResource("1_ocs6q")]

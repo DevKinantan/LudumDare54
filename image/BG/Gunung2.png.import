@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vrgdqvm5glph"
-path="res://.godot/imported/nokia3310.png-c86c47c57d9ed6ef6f1a41090912e6f5.ctex"
+uid="uid://bhqyisj0qrshv"
+path="res://.godot/imported/Gunung2.png-61a7426f6f6560d7a2f9a559cc842390.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/nokia3310.png"
-dest_files=["res://.godot/imported/nokia3310.png-c86c47c57d9ed6ef6f1a41090912e6f5.ctex"]
+source_file="res://image/BG/Gunung2.png"
+dest_files=["res://.godot/imported/Gunung2.png-61a7426f6f6560d7a2f9a559cc842390.ctex"]
 
 [params]
 

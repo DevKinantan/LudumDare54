@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://bg3rht6ofkmi5"]
+
+[ext_resource type="PackedScene" uid="uid://bi4ts1m0cy23f" path="res://scene/background.tscn" id="1_0foba"]
+[ext_resource type="Script" path="res://script/test_gameplay.gd" id="1_82fdm"]
+[ext_resource type="PackedScene" uid="uid://c3ukt2k1h4m2a" path="res://scene/player.tscn" id="2_17syb"]
+[ext_resource type="PackedScene" uid="uid://byawmvuiyqvi0" path="res://scene/inventory/inventory.tscn" id="4_vrvqi"]
+[ext_resource type="PackedScene" uid="uid://b35jrivkkpxxc" path="res://scene/small_cargo_slot/small_cargo_slot.tscn" id="5_f4q2a"]
+[ext_resource type="PackedScene" uid="uid://cvkhsvmj4fqg5" path="res://scene/item/pot/pot.tscn" id="6_3tk0e"]
+[ext_resource type="PackedScene" uid="uid://b4wx1cnboofgk" path="res://scene/item/toxic_diamond/toxic_diamond.tscn" id="7_cxc5v"]
+
+[node name="TestGameplay" type="Node2D"]
+script = ExtResource("1_82fdm")
+
+[node name="Background" parent="." instance=ExtResource("1_0foba")]
+
+[node name="EnemySpawn" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("2_17syb")]
+position = Vector2(503, 399)
+
+[node name="Inventory" parent="." instance=ExtResource("4_vrvqi")]
+z_index = 1
+position = Vector2(192, 704)
+is_open = false
+
+[node name="SmallCargoSlot" parent="." instance=ExtResource("5_f4q2a")]
+z_index = 1
+position = Vector2(448, 544)
+
+[node name="Pot" parent="SmallCargoSlot" instance=ExtResource("6_3tk0e")]
+position = Vector2(-32, 0)
+
+[node name="ToxicDiamond" parent="SmallCargoSlot" instance=ExtResource("7_cxc5v")]
+position = Vector2(32, -64)
+
+[connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]

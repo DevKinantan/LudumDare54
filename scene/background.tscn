@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi4ts1m0cy23f"]
+
+[ext_resource type="Script" path="res://script/background.gd" id="1_dv434"]
+[ext_resource type="Texture2D" uid="uid://bhqyisj0qrshv" path="res://image/BG/Gunung2.png" id="1_xylge"]
+[ext_resource type="Texture2D" uid="uid://8vuubpf87ff0" path="res://image/BG/Gunung.png" id="2_ks2x7"]
+[ext_resource type="Texture2D" uid="uid://cfssgpfhftyi4" path="res://image/BG/Sky.png" id="2_rphgc"]
+[ext_resource type="Texture2D" uid="uid://eybbdjxvhs0j" path="res://image/BG/Tanah.png" id="3_fxvmf"]
+
+[node name="background" type="ParallaxBackground"]
+script = ExtResource("1_dv434")
+
+[node name="LayerSky" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 1)
+
+[node name="Sky" type="Sprite2D" parent="LayerSky"]
+position = Vector2(576, 324)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_rphgc")
+
+[node name="LayerGunung" type="ParallaxLayer" parent="."]
+rotation = 6.28319
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(2304, 0)
+
+[node name="Gunung2" type="Sprite2D" parent="LayerGunung"]
+position = Vector2(576, 324)
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("1_xylge")
+
+[node name="Gunung3" type="Sprite2D" parent="LayerGunung"]
+position = Vector2(1728, 324)
+scale = Vector2(-3.6, 3.6)
+texture = ExtResource("1_xylge")
+
+[node name="LayerGunung2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Gunung" type="Sprite2D" parent="LayerGunung2"]
+position = Vector2(576, 324)
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_ks2x7")
+
+[node name="LayerTanah" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Tanah" type="Sprite2D" parent="LayerTanah"]
+position = Vector2(576, 323.75)
+scale = Vector2(3.6, 3.60278)
+texture = ExtResource("3_fxvmf")

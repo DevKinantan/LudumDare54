@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vrgdqvm5glph"
-path="res://.godot/imported/nokia3310.png-c86c47c57d9ed6ef6f1a41090912e6f5.ctex"
+uid="uid://b1jfsan860758"
+path="res://.godot/imported/Musuh Motor-Sheet.png-ea4068eb5c4c9989d0c83e24d15a3a41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/nokia3310.png"
-dest_files=["res://.godot/imported/nokia3310.png-c86c47c57d9ed6ef6f1a41090912e6f5.ctex"]
+source_file="res://image/Musuh Motor-Sheet.png"
+dest_files=["res://.godot/imported/Musuh Motor-Sheet.png-ea4068eb5c4c9989d0c83e24d15a3a41.ctex"]
 
 [params]
 

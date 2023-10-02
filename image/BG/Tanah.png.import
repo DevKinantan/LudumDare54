@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vrgdqvm5glph"
-path="res://.godot/imported/nokia3310.png-c86c47c57d9ed6ef6f1a41090912e6f5.ctex"
+uid="uid://eybbdjxvhs0j"
+path="res://.godot/imported/Tanah.png-ca6aaa617883ad50aec716b35952d742.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/nokia3310.png"
-dest_files=["res://.godot/imported/nokia3310.png-c86c47c57d9ed6ef6f1a41090912e6f5.ctex"]
+source_file="res://image/BG/Tanah.png"
+dest_files=["res://.godot/imported/Tanah.png-ca6aaa617883ad50aec716b35952d742.ctex"]
 
 [params]
 

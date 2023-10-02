@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vrgdqvm5glph"
-path="res://.godot/imported/nokia3310.png-c86c47c57d9ed6ef6f1a41090912e6f5.ctex"
+uid="uid://dou7v0awkvaom"
+path="res://.godot/imported/Backgroundsementara.png-7177cec3dcb5148a119ed3173ebafc1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/nokia3310.png"
-dest_files=["res://.godot/imported/nokia3310.png-c86c47c57d9ed6ef6f1a41090912e6f5.ctex"]
+source_file="res://image/BG/Backgroundsementara.png"
+dest_files=["res://.godot/imported/Backgroundsementara.png-7177cec3dcb5148a119ed3173ebafc1d.ctex"]
 
 [params]
 

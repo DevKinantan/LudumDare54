@@ -1,0 +1,205 @@
+[gd_scene load_steps=18 format=3 uid="uid://c3ukt2k1h4m2a"]
+
+[ext_resource type="Texture2D" uid="uid://pihyagxddjx7" path="res://image/TankDownperspektif.png" id="1_026ly"]
+[ext_resource type="Script" path="res://script/player.gd" id="1_wbiah"]
+[ext_resource type="Script" path="res://script/Turret.gd" id="3_qrk7n"]
+[ext_resource type="Texture2D" uid="uid://cgo06w6fc18b1" path="res://image/Turret-Sheet.png" id="4_7qvvd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nahuy"]
+size = Vector2(182, 95)
+
+[sub_resource type="Gradient" id="Gradient_3xygi"]
+colors = PackedColorArray(1, 1, 1, 0.560784, 0.401938, 0.289838, 0.213772, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mk57i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_026ly")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_addyv"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbti8"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykqek"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c836c"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23b1i"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o13qq"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atsip"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3sie"]
+atlas = ExtResource("4_7qvvd")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gi2lx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_addyv")
+}],
+"loop": true,
+"name": &"atas",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbti8")
+}],
+"loop": true,
+"name": &"bawah",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykqek")
+}],
+"loop": true,
+"name": &"kanan",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c836c")
+}],
+"loop": true,
+"name": &"kananAtas",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23b1i")
+}],
+"loop": true,
+"name": &"kananBawah",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o13qq")
+}],
+"loop": true,
+"name": &"kiri",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atsip")
+}],
+"loop": true,
+"name": &"kiriAtas",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3sie")
+}],
+"loop": true,
+"name": &"kiriBawah",
+"speed": 5.0
+}]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bhxdt"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_wbiah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -11.5)
+shape = SubResource("RectangleShape2D_nahuy")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-59, 28)
+amount = 30
+lifetime = 2.0
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(1, 6)
+direction = Vector2(-1, 0)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+angular_velocity_max = 100.0
+damping_min = 10.0
+damping_max = 25.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color = Color(0.807843, 0.505882, 0.32549, 0.619608)
+color_ramp = SubResource("Gradient_3xygi")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(-45, 4)
+amount = 30
+lifetime = 2.0
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(1, 6)
+direction = Vector2(-1, 0)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+angular_velocity_max = 100.0
+damping_min = 10.0
+damping_max = 25.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color = Color(0.807843, 0.505882, 0.32549, 0.619608)
+color_ramp = SubResource("Gradient_3xygi")
+
+[node name="TruckSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.385, 0.385)
+sprite_frames = SubResource("SpriteFrames_mk57i")
+animation = &"Idle"
+
+[node name="TurretSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, -59)
+scale = Vector2(0.37, 0.37)
+sprite_frames = SubResource("SpriteFrames_gi2lx")
+animation = &"kanan"
+
+[node name="Turret" type="Node2D" parent="."]
+position = Vector2(7, -65)
+script = ExtResource("3_qrk7n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Turret"]
+visible = false
+scale = Vector2(12.5, 6.25)
+texture = SubResource("PlaceholderTexture2D_bhxdt")
+
+[node name="Marker2D" type="Marker2D" parent="Turret"]
+position = Vector2(20, 0)
+
+[node name="CooldownTimer" type="Timer" parent="Turret"]
+wait_time = 0.8
+one_shot = true
+
+[node name="BurstTimer" type="Timer" parent="Turret"]
+wait_time = 0.07
+one_shot = true
+
+[connection signal="timeout" from="Turret/CooldownTimer" to="Turret" method="_on_cooldown_timer_timeout"]
+[connection signal="timeout" from="Turret/BurstTimer" to="Turret" method="_on_burst_timer_timeout"]
