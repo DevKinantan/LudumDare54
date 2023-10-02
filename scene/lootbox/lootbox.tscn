@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://65c3recjdkjl"]
+
+[ext_resource type="Script" path="res://scene/lootbox/lootbox.gd" id="1_1ex1i"]
+[ext_resource type="PackedScene" uid="uid://b35jrivkkpxxc" path="res://scene/small_cargo_slot/small_cargo_slot.tscn" id="1_ucjne"]
+
+[node name="Lootbox" type="Node2D"]
+script = ExtResource("1_1ex1i")
+
+[node name="SmallCargoSlot" parent="." instance=ExtResource("1_ucjne")]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 64.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = -64.0
+text = "X"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

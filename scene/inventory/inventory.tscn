@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://byawmvuiyqvi0"]
+[gd_scene load_steps=6 format=3 uid="uid://byawmvuiyqvi0"]
 
 [ext_resource type="Script" path="res://scene/inventory/inventory.gd" id="1_jbuuj"]
 [ext_resource type="PackedScene" uid="uid://wcdkde8ll5g" path="res://scene/extendable_cargo_slot/extendable_cargo_slot.tscn" id="1_ocs6q"]
 [ext_resource type="PackedScene" uid="uid://bjclbttmwp46a" path="res://scene/user_pointer/user_pointer.tscn" id="3_dvxgr"]
+[ext_resource type="Texture2D" uid="uid://26f11uv2f3sr" path="res://image/TrashClosed.png" id="4_g2ytw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w78l3"]
+size = Vector2(128, 128)
 
 [node name="Inventory" type="Node2D"]
 script = ExtResource("1_jbuuj")
@@ -18,5 +22,72 @@ text = "CARGO"
 position = Vector2(0, -96)
 
 [node name="UserPointer" parent="." instance=ExtResource("3_dvxgr")]
+
+[node name="SalesPanel" type="Panel" parent="."]
+z_index = 1
+offset_left = 256.0
+offset_top = -448.0
+offset_right = 640.0
+offset_bottom = -64.0
+
+[node name="Footer" type="Label" parent="SalesPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.85
+anchor_right = 0.5
+anchor_bottom = 0.85
+offset_left = -128.0
+offset_top = -16.4
+offset_right = 160.0
+offset_bottom = 15.6
+text = "Total: 32000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Header" type="Label" parent="SalesPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.15
+offset_left = -192.0
+offset_top = -25.6
+offset_right = 192.0
+offset_bottom = 6.4
+text = "Total Sales"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Item" type="Label" parent="SalesPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -64.0
+offset_right = 160.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Batu Bara = 17000
+Flame Diamond = 17000
+Sapi (toxic) = 0
+Pot = 15000"
+
+[node name="Trash" type="Node2D" parent="."]
+
+[node name="TrashLogo" type="Sprite2D" parent="Trash"]
+position = Vector2(192, -128)
+texture = ExtResource("4_g2ytw")
+
+[node name="TrashArea" type="Area2D" parent="Trash"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/TrashArea"]
+position = Vector2(192, -128)
+shape = SubResource("RectangleShape2D_w78l3")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx3ygybnjipv7"]
+
+[ext_resource type="PackedScene" uid="uid://65c3recjdkjl" path="res://scene/lootbox/lootbox.tscn" id="1_cbvta"]
+[ext_resource type="PackedScene" uid="uid://byawmvuiyqvi0" path="res://scene/inventory/inventory.tscn" id="2_igoh2"]
+
+[node name="TestLootbox" type="Node2D"]
+
+[node name="Lootbox" parent="." instance=ExtResource("1_cbvta")]
+position = Vector2(512, 576)
+
+[node name="Inventory" parent="." instance=ExtResource("2_igoh2")]
+position = Vector2(192, 736)
+
+[node name="Item" parent="Inventory/SalesPanel" index="2"]
+grow_horizontal = 2
+grow_vertical = 2
+
+[editable path="Inventory"]

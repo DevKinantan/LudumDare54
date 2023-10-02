@@ -13,3 +13,7 @@ rotation = 3.14159
 [node name="BottomSlot" parent="." instance=ExtResource("1_oif6d")]
 
 [node name="ExtendedSlots" type="Node2D" parent="."]
+
+[node name="ItemList" type="Node2D" parent="."]
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

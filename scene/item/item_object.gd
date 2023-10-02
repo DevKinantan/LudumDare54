@@ -16,6 +16,7 @@ func _process(delta):
 
 
 func _on_item_position_change(area_parent, source):
+	print(area_parent)
 	if get_parent() != area_parent:
 		get_parent().remove_child(self)
 		area_parent.add_child(self)
@@ -32,6 +33,6 @@ func get_class():
 	return "ItemObject"
 
 
-@warning_ignore("native_method_override")
-func is_class(value):
-	return value == "ItemObject"
+#@warning_ignore("native_method_override")
+#func is_class(value):
+#	return value == "ItemObject"

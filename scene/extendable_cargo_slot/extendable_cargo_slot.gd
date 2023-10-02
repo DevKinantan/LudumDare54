@@ -45,3 +45,7 @@ func set_slot_monitorable(is_monitorable: bool):
 
 func toggle_slot_monitorable():
 	set_slot_monitorable(not slot_monitorable)
+
+
+func _on_child_entered_tree(node):
+	pass # Replace with function body.

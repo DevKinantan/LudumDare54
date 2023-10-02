@@ -70,6 +70,8 @@ func snap_position():
 	var in_area = true
 	if check_inventory_area:
 		in_area = in_inventory_area($ShadowArea)
+	
+	var in_trash_area = check_colided_with_area($ShadowArea, "TrashArea")
 		
 	if not colided and in_area:
 		if sprite_width % 128 == 0:
@@ -89,11 +91,13 @@ func snap_position():
 		
 		# Check if area parent from extendable cargo
 		if new_parent.name == "TopSlot" or new_parent.name == "BottomSlot":
-			new_parent = new_parent.get_parent()
+			new_parent = new_parent.get_parent().get_node("ItemList")
 		elif new_parent.get_parent().name == "ExtendedSlots":
-			new_parent = new_parent.get_parent().get_parent()
-			
+			new_parent = new_parent.get_parent().get_parent().get_node("ItemList")
 		emit_signal("position_change", new_parent , self)
+	
+	elif in_trash_area:
+		get_parent().queue_free()
 	
 	else:
 		snap_to_last_position()

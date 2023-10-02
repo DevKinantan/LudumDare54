@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://5a3dyxfc53ow"]
+
+[ext_resource type="Script" path="res://scene/item/item_object.gd" id="1_mo6pj"]
+[ext_resource type="PackedScene" uid="uid://pqk4dfi5b3wv" path="res://scene/item/item.tscn" id="2_k2iip"]
+[ext_resource type="Texture2D" uid="uid://h3ugsqpxoqsu" path="res://image/elemenBloom (1).png" id="3_ok8sk"]
+[ext_resource type="PackedScene" uid="uid://nlsveud5flp7" path="res://scene/item/bloom.tscn" id="4_hdp43"]
+[ext_resource type="PackedScene" uid="uid://cye1k4nmg0wgy" path="res://scene/item/status_efect.tscn" id="5_4ri7u"]
+
+[node name="BloomDiamond" type="Node2D"]
+script = ExtResource("1_mo6pj")
+price = 17000
+
+[node name="Item" parent="." instance=ExtResource("2_k2iip")]
+
+[node name="ShadowSprite" parent="Item/ShadowArea" index="0"]
+texture = ExtResource("3_ok8sk")
+
+[node name="ShadowCollision" parent="Item/ShadowArea" index="1"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" parent="Item" index="1"]
+texture = ExtResource("3_ok8sk")
+
+[node name="CollisionShape2D" parent="Item/ItemArea" index="0"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Bloom" parent="Item" instance=ExtResource("4_hdp43")]
+
+[node name="StatusEffect" parent="Item" instance=ExtResource("5_4ri7u")]
+
+[connection signal="drag_mode" from="Item" to="Item/Bloom" method="_on_item_drag_mode"]
+[connection signal="position_change" from="Item" to="." method="_on_item_position_change"]
+[connection signal="position_change" from="Item" to="Item/StatusEffect" method="_on_item_position_change"]
+[connection signal="set_effect" from="Item" to="Item/StatusEffect" method="_on_item_set_effect"]
+
+[editable path="Item"]

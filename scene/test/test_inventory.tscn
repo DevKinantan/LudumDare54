@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://7va2ycimjeld"]
+[gd_scene load_steps=11 format=3 uid="uid://7va2ycimjeld"]
 
 [ext_resource type="PackedScene" uid="uid://byawmvuiyqvi0" path="res://scene/inventory/inventory.tscn" id="1_1vmc4"]
+[ext_resource type="Script" path="res://scene/inventory/trash.gd" id="2_4ec3j"]
 [ext_resource type="PackedScene" uid="uid://cn1n27yv7o7yu" path="res://scene/cargo_slot/cargo_slot.tscn" id="2_uihqo"]
 [ext_resource type="PackedScene" uid="uid://bqk20uoyhxxg5" path="res://scene/item/beker_kimia/beker_kimia.tscn" id="4_v00lv"]
 [ext_resource type="PackedScene" uid="uid://cd4yd7gvryjll" path="res://scene/item/gas/Gas.tscn" id="5_4nq44"]
 [ext_resource type="PackedScene" uid="uid://b7qj6fviqolmr" path="res://scene/item/batu_bara/batu_bara.tscn" id="5_wbcei"]
 [ext_resource type="PackedScene" uid="uid://cvkhsvmj4fqg5" path="res://scene/item/pot/pot.tscn" id="6_b50ye"]
-[ext_resource type="PackedScene" uid="uid://de7qv6ilh1tm0" path="res://scene/item/flame_diamond/flame_diamond.tscn" id="6_dwogd"]
+[ext_resource type="PackedScene" uid="uid://b42v1sm5vhnfr" path="res://scene/item/flame_diamond/flame_diamond.tscn" id="6_dwogd"]
 [ext_resource type="PackedScene" uid="uid://b4wx1cnboofgk" path="res://scene/item/toxic_diamond/toxic_diamond.tscn" id="7_2gvpm"]
+[ext_resource type="PackedScene" uid="uid://5a3dyxfc53ow" path="res://scene/item/bloom_diamod/bloom_diamond.tscn" id="8_lsbdy"]
 
 [node name="test_inventory" type="Node2D"]
 
@@ -18,29 +20,52 @@ is_open = false
 [node name="ExtendableCargoSlot" parent="Inventory" index="1"]
 slot = 1
 
+[node name="Footer" parent="Inventory/SalesPanel" index="0"]
+offset_top = 0.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Trash" parent="Inventory" index="4"]
+script = ExtResource("2_4ec3j")
+
 [node name="CargoSlot" parent="." instance=ExtResource("2_uihqo")]
-position = Vector2(512, 448)
+position = Vector2(832, 128)
 
 [node name="BekerKimia" parent="." instance=ExtResource("4_v00lv")]
-position = Vector2(608, 544)
+position = Vector2(864, 96)
 
 [node name="Gas" parent="." instance=ExtResource("5_4nq44")]
-position = Vector2(416, 512)
+position = Vector2(736, 192)
 
 [node name="BatuBara2" parent="." instance=ExtResource("5_wbcei")]
-position = Vector2(608, 352)
+position = Vector2(864, 224)
 
 [node name="CargoSlot2" parent="." instance=ExtResource("2_uihqo")]
 position = Vector2(832, 448)
 
 [node name="FlameDiamond" parent="." instance=ExtResource("6_dwogd")]
-position = Vector2(416, 352)
+position = Vector2(928, 352)
 
 [node name="ToxicDiamond" parent="." instance=ExtResource("7_2gvpm")]
-position = Vector2(480, 480)
+position = Vector2(736, 544)
+
+[node name="BloomDiamond" parent="." instance=ExtResource("8_lsbdy")]
+position = Vector2(736, 352)
 
 [node name="Pot" parent="." instance=ExtResource("6_b50ye")]
 position = Vector2(864, 480)
+
+[node name="SellButton" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 608.0
+offset_right = 96.0
+offset_bottom = 640.0
+text = "$"
+
+[connection signal="area_entered" from="Inventory/Trash/TrashArea" to="Inventory/Trash" method="_on_trash_area_area_entered"]
+[connection signal="area_exited" from="Inventory/Trash/TrashArea" to="Inventory/Trash" method="_on_trash_area_area_exited"]
+[connection signal="pressed" from="SellButton" to="Inventory" method="_on_sell_button_pressed"]
 
 [editable path="Inventory"]
 [editable path="Inventory/ExtendableCargoSlot"]
