@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://dqjdsrpfy244"]
+[gd_scene load_steps=18 format=3 uid="uid://ujlxud38xdou"]
 
-[ext_resource type="PackedScene" uid="uid://die120ayy6wq3" path="res://scene/enemy.tscn" id="1_kwy1x"]
+[ext_resource type="PackedScene" uid="uid://d4koadn8rkeu7" path="res://scene/enemy.tscn" id="1_kwy1x"]
 [ext_resource type="Script" path="res://script/enemy_jet.gd" id="2_7m62c"]
 [ext_resource type="Texture2D" uid="uid://dkyrsfphbnqjr" path="res://image/Musuh Motor mati-Sheet.png" id="2_fmnjp"]
 [ext_resource type="Texture2D" uid="uid://b1jfsan860758" path="res://image/Musuh Motor-Sheet.png" id="3_n0135"]

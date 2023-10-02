@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://die120ayy6wq3"]
+[gd_scene load_steps=18 format=3 uid="uid://d4koadn8rkeu7"]
 
 [ext_resource type="Script" path="res://script/enemy.gd" id="1_ahh6d"]
 [ext_resource type="Texture2D" uid="uid://cfcy5o48nw5vm" path="res://image/Musuh mati-Sheet.png" id="2_ydayu"]

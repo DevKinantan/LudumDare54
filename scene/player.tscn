@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3ukt2k1h4m2a"]
+[gd_scene load_steps=18 format=3 uid="uid://dsfv5ywnnk0xg"]
 
 [ext_resource type="Texture2D" uid="uid://pihyagxddjx7" path="res://image/TankDownperspektif.png" id="1_026ly"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_wbiah"]
