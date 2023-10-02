@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bg3rht6ofkmi5"]
+[gd_scene load_steps=8 format=3 uid="uid://cgjnc2x44cwnj"]
 
-[ext_resource type="PackedScene" uid="uid://bi4ts1m0cy23f" path="res://scene/background.tscn" id="1_0foba"]
+[ext_resource type="PackedScene" uid="uid://dkoqefijgogr1" path="res://scene/background.tscn" id="1_0foba"]
 [ext_resource type="Script" path="res://script/test_gameplay.gd" id="1_82fdm"]
-[ext_resource type="PackedScene" uid="uid://c3ukt2k1h4m2a" path="res://scene/player.tscn" id="2_17syb"]
+[ext_resource type="PackedScene" uid="uid://dsfv5ywnnk0xg" path="res://scene/player.tscn" id="2_17syb"]
 [ext_resource type="PackedScene" uid="uid://byawmvuiyqvi0" path="res://scene/inventory/inventory.tscn" id="4_vrvqi"]
 [ext_resource type="PackedScene" uid="uid://b35jrivkkpxxc" path="res://scene/small_cargo_slot/small_cargo_slot.tscn" id="5_f4q2a"]
 [ext_resource type="PackedScene" uid="uid://cvkhsvmj4fqg5" path="res://scene/item/pot/pot.tscn" id="6_3tk0e"]
