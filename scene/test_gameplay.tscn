@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://cgjnc2x44cwnj"]
+
+[ext_resource type="PackedScene" uid="uid://dkoqefijgogr1" path="res://scene/background.tscn" id="1_0foba"]
+[ext_resource type="Script" path="res://script/test_gameplay.gd" id="1_82fdm"]
+[ext_resource type="PackedScene" uid="uid://dsfv5ywnnk0xg" path="res://scene/player.tscn" id="2_17syb"]
+[ext_resource type="PackedScene" uid="uid://byawmvuiyqvi0" path="res://scene/inventory/inventory.tscn" id="4_vrvqi"]
+[ext_resource type="Texture2D" uid="uid://dt0urauvnbbi7" path="res://image/sTART.png" id="8_pkrp0"]
+[ext_resource type="PackedScene" uid="uid://8nhednxii3h4" path="res://scene/lootbox/lootbox_spawner.tscn" id="9_d0gf8"]
+[ext_resource type="Texture2D" uid="uid://cxlg4wdt4f7l2" path="res://image/Store/upgrade.png" id="9_g6m1a"]
+[ext_resource type="Texture2D" uid="uid://bhvs34skhrys5" path="res://image/BarBelakang.png" id="9_lqlvc"]
+[ext_resource type="Texture2D" uid="uid://rb0uutnfqrwx" path="res://image/BarDepan.png" id="10_a4ass"]
+[ext_resource type="PackedScene" uid="uid://m6cqyqaem0fn" path="res://scene/Tutorial/help.tscn" id="10_tw1ih"]
+
+[node name="TestGameplay" type="Node2D"]
+script = ExtResource("1_82fdm")
+
+[node name="Background" parent="." instance=ExtResource("1_0foba")]
+
+[node name="EnemySpawn" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="CheckpointTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="CountdownTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="StartCooldown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Player" parent="." instance=ExtResource("2_17syb")]
+position = Vector2(503, 399)
+
+[node name="Inventory" parent="." instance=ExtResource("4_vrvqi")]
+z_index = 2
+position = Vector2(192, 640)
+
+[node name="ContinueBtn" type="TextureButton" parent="."]
+visible = false
+offset_left = 832.0
+offset_top = 520.0
+offset_right = 1064.0
+offset_bottom = 592.0
+texture_normal = ExtResource("8_pkrp0")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="ShopBtn" type="TextureButton" parent="."]
+visible = false
+offset_left = 832.0
+offset_top = 432.0
+offset_right = 1064.0
+offset_bottom = 504.0
+texture_normal = ExtResource("9_g6m1a")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 768.0
+offset_top = 8.0
+offset_right = 1152.0
+offset_bottom = 72.0
+max_value = 60.0
+texture_under = ExtResource("9_lqlvc")
+texture_progress = ExtResource("10_a4ass")
+
+[node name="LootboxSpawner" parent="." instance=ExtResource("9_d0gf8")]
+
+[node name="Help" parent="." instance=ExtResource("10_tw1ih")]
+
+[node name="HelpButton" parent="Help" index="1"]
+offset_top = 64.0
+offset_bottom = 96.0
+
+[connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
+[connection signal="timeout" from="CheckpointTimer" to="." method="_on_checkpoint_timer_timeout"]
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
+[connection signal="timeout" from="StartCooldown" to="." method="_on_start_cooldown_timeout"]
+[connection signal="checkpoint_reached" from="Player" to="." method="_on_player_checkpoint_reached"]
+[connection signal="mouse_entered" from="ContinueBtn" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="ContinueBtn" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="ContinueBtn" to="." method="_on_texture_button_pressed"]
+[connection signal="mouse_entered" from="ShopBtn" to="." method="_on_shop_btn_mouse_entered"]
+[connection signal="mouse_exited" from="ShopBtn" to="." method="_on_shop_btn_mouse_exited"]
+[connection signal="pressed" from="ShopBtn" to="." method="_on_shop_btn_pressed"]
+
+[editable path="Help"]

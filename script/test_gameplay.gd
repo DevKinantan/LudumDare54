@@ -62,7 +62,7 @@ func _on_player_checkpoint_reached():
 	continueBtn.visible = true
 	shopBtn.visible = true
 
-	print("Stopping truck")
+	$Inventory.sell_inventory_items()
 
 
 func _on_texture_button_mouse_entered():
@@ -82,6 +82,7 @@ func _on_texture_button_pressed():
 	get_tree().get_root().get_node("Garage").changeTruckCond(false)
 	progressBar.value = 0
 	$StartCooldown.start()
+	$Inventory/SalesPanel.visible = false
 
 
 func _on_start_cooldown_timeout():
@@ -92,7 +93,7 @@ func _on_start_cooldown_timeout():
 
 
 func _on_countdown_timer_timeout():
-	if(progressBar.value <= 130):
+	if(progressBar.value <= 60):
 		progressBar.value += 1
 	else:
 		$CountdownTimer.stop()
@@ -109,3 +110,4 @@ func _on_shop_btn_mouse_exited():
 func _on_shop_btn_pressed():
 	var shop = shop_scene.instantiate()
 	get_tree().get_root().add_child(shop)
+	$Inventory/SalesPanel.visible = false
