@@ -21,7 +21,7 @@ Prepare and conquer!!!
 Credits
 
 Kinantan team is a group of university friends from Indonesia.
-- **ObbyTheBuilder**  (Eduardo Sanov Rusianto) - Programmer
-- **CreditFool** (Ichlalsul Bulqiah) - Programmer
-- **Syarinro** (Abdillah Syariaty)-  Art and Game Design
-- **Sterben** (Farel Aziz Dinata) -  Art
+- **[ObbyTheBuilder](https://github.com/ardoardo02)**  (Eduardo Sanov Rusianto) - Programmer
+- **[CreditFool](https://github.com/CreditFool)** (Ichlalsul Bulqiah) - Programmer
+- **[Syarinro](https://www.instagram.com/syarinro/)** (Abdillah Syariaty)-  Art and Game Design
+- **[Sterben](https://www.instagram.com/fareldinata11_/)** (Farel Aziz Dinata) -  Art
