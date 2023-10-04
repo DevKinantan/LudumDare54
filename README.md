@@ -1,6 +1,8 @@
 # LudumDare54
 A Game made for Ludum Dare 54 Game Jam, made with only 3 days using Godot4
 
+NOTE: We can't share our image asset that we use in this game because permission issue from our artist, this repository only have script and scene that we created in godot 4
+
 ![banner](https://img.itch.zone/aW1nLzEzNTk2MjQ2LmpwZw==/original/ZD0hyv.jpg)
 
 ## Spoils OF THE WASTE
